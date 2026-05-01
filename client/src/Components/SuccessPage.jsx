@@ -1,202 +1,255 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, Mail, Phone, Clock, MessageSquare, Home, RefreshCw, Star, Shield, Truck } from 'lucide-react';
+
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, type: "spring", stiffness: 200 } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
 
 const FormSubmissionConfirmation = () => {
   const [countdown, setCountdown] = useState(5);
- const navigate=useNavigate();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // Countdown timer for redirect simulation
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
     }
   }, [countdown]);
-  useEffect(()=>{
-    if(countdown===0){
-navigate("/");
+
+  useEffect(() => {
+    if (countdown === 0) {
+      navigate("/");
     }
-  },[countdown,navigate]);
+  }, [countdown, navigate]);
+
+  const keyPoints = [
+    { icon: <Clock className="w-8 h-8" />, title: "Quick Response", desc: "We aim to respond to all inquiries within one business day.", gradient: "from-[#0A2647] to-[#2C5F2D]" },
+    { icon: <MessageSquare className="w-8 h-8" />, title: "Direct Communication", desc: "A dedicated team member will personally handle your inquiry.", gradient: "from-[#2C5F2D] to-[#E8A87C]" },
+    { icon: <Mail className="w-8 h-8" />, title: "Email Confirmation", desc: "We've sent a confirmation email to the address you provided.", gradient: "from-[#0A2647] to-[#E8A87C]" },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
-      <div className="max-w-2xl w-full">
-        {/* Animated Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+    <div className="min-h-screen bg-gradient-to-br from-white via-[#F9F6F0] to-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#0A2647]/5 rounded-full"
+        />
+      </div>
+
+      <div className="max-w-4xl w-full relative z-10">
+        {/* Header Section */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="text-center mb-8"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] rounded-full mb-6 shadow-lg"
+          >
+            <CheckCircle className="w-4 h-4 text-[#E8A87C]" />
+            <span className="text-sm font-medium text-white">Submission Successful</span>
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A2647] mb-4">
             Thank You!
           </h1>
           <p className="text-lg text-gray-600">
-            Your message has been successfully delivered.
+            Your message has been successfully delivered to our team.
           </p>
-        </div>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: 80 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] mx-auto rounded-full mt-4"
+          />
+        </motion.div>
 
         {/* Main Confirmation Card */}
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transform transition-all duration-500 hover:shadow-2xl">
-          <div className="md:flex">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={scaleIn}
+          className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-8 hover:shadow-3xl transition-all duration-500"
+        >
+          <div className="grid md:grid-cols-5 gap-0">
             {/* Left side with icon */}
-            <div className="md:w-2/5 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-8 md:p-12">
+            <div className="md:col-span-2 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+              </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-white rounded-full opacity-20 animate-ping"></div>
-                <div className="relative bg-white rounded-full p-6">
-                  <svg
-                    className="w-16 h-16 md:w-20 md:h-20 text-indigo-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 8l7.89-4.26a2 2 0 012.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute inset-0 bg-white rounded-full opacity-20"
+                />
+                <div className="relative bg-white rounded-full p-6 shadow-xl">
+                  <Truck className="w-16 h-16 md:w-20 md:h-20 text-[#2C5F2D]" />
                 </div>
               </div>
             </div>
-           
+
             {/* Right side with message */}
-            <div className="md:w-3/5 p-8 md:p-10">
-              <div className="flex items-center mb-6">
-                <div className="bg-green-100 rounded-full p-2 mr-4">
-                  <svg
-                    className="w-6 h-6 text-green-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+            <div className="md:col-span-3 p-8 md:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center shadow-md">
+                  <CheckCircle className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-bold text-[#0A2647]">
                   Form Submitted Successfully
                 </h2>
               </div>
-             
+
               <div className="space-y-4">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  We've received your contact form submission and will get back to you shortly. Our team typically responds within 24 hours during business days.
+                  We've received your contact form submission and will get back to you shortly. 
+                  Our team typically responds within <span className="font-semibold text-[#2C5F2D]">24 hours</span> during business days.
                 </p>
-               
-               
+                <div className="flex items-center gap-3 p-4 bg-[#F9F6F0] rounded-xl">
+                  <Phone className="w-5 h-5 text-[#2C5F2D]" />
+                  <p className="text-gray-700">
+                    Need urgent assistance? Call us at{' '}
+                    <a href="tel:+12093958481" className="font-semibold text-[#2C5F2D] hover:underline">+1 (209) 395-8481</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Key Points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="text-indigo-600 mb-4">
-              <svg
-                className="w-10 h-10"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 className="font-bold text-gray-800 mb-2">Quick Response</h3>
-            <p className="text-gray-600 text-sm">We aim to respond to all inquiries within one business day.</p>
-          </div>
-         
-          <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="text-indigo-600 mb-4">
-              <svg
-                className="w-10 h-10"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 className="font-bold text-gray-800 mb-2">Direct Communication</h3>
-            <p className="text-gray-600 text-sm">A dedicated team member will personally handle your inquiry.</p>
-          </div>
-         
-          <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="text-indigo-600 mb-4">
-              <svg
-                className="w-10 h-10"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M2.94 6.412A2 2 0 002 8.108V16a2 2 0 002 2h12a2 2 0 002-2V8.108a2 2 0 00-.94-1.696l-6-3.75a2 2 0 00-2.12 0l-6 3.75zm2.615 2.423a1 1 0 10-1.11 1.664l5 3.333a1 1 0 001.11 0l5-3.333a1 1 0 00-1.11-1.664L10 11.798 5.555 8.835z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 className="font-bold text-gray-800 mb-2">Email Confirmation</h3>
-            <p className="text-gray-600 text-sm">We've sent a confirmation email to the address you provided.</p>
-          </div>
-        </div>
+        {/* Key Points Grid */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+        >
+          {keyPoints.map((point, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeUp}
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+            >
+              <div className={`w-14 h-14 bg-gradient-to-br ${point.gradient} rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                <div className="text-white">{point.icon}</div>
+              </div>
+              <h3 className="font-bold text-[#0A2647] mb-2 text-lg">{point.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Action Buttons & Redirect Info */}
-        <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-6 md:mb-0 md:mr-6">
-              <h3 className="font-bold text-gray-800 mb-2">Need immediate assistance?</h3>
-              <p className="text-gray-600">Call us at <span className="font-semibold"> +1 (209) 395-8481</span> during business hours.</p>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="font-bold text-[#0A2647] mb-2 text-lg">Need immediate assistance?</h3>
+              <p className="text-gray-600">
+                Call us at{' '}
+                <a href="tel:+12093958481" className="font-semibold text-[#2C5F2D] hover:underline">+1 (209) 395-8481</a>{' '}
+                during business hours.
+              </p>
             </div>
-           
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onClick={() => window.location.href="/"}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => window.location.href = "/"}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
               >
+                <Home className="w-4 h-4" />
                 Return to Home
-              </button>
-              <button
-                className="px-6 py-3 bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 font-medium rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onClick={() => window.location.href="/contact"}
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => window.location.href = "/contact"}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 hover:border-[#2C5F2D] text-gray-700 font-medium rounded-xl transition-all duration-300 hover:shadow-md"
               >
+                <RefreshCw className="w-4 h-4" />
                 Contact Again
-              </button>
+              </motion.button>
             </div>
           </div>
-         
-          {/* Countdown for redirect simulation */}
-          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-            <p className="text-gray-600">
+
+          {/* Countdown Progress */}
+          <div className="mt-8 pt-6 border-t border-gray-100 text-center">
+            <p className="text-gray-500 mb-3">
               You will be automatically redirected to our homepage in
-              <span className="font-bold text-indigo-600 mx-1">{countdown}</span>
+              <span className="font-bold text-[#2C5F2D] mx-1 text-lg">{countdown}</span>
               seconds.
             </p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 mt-4 max-w-md mx-auto">
-              <div
-                className="bg-indigo-600 h-2.5 rounded-full transition-all duration-1000"
-                style={{ width: `${(5 - countdown) * 20}%` }}
-              ></div>
+            <div className="w-full bg-gray-100 rounded-full h-2 max-w-md mx-auto overflow-hidden">
+              <motion.div
+                initial={{ width: "0%" }}
+                animate={{ width: `${(5 - countdown) * 20}%` }}
+                transition={{ duration: 0.5 }}
+                className="bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] h-2 rounded-full"
+              />
             </div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Trust Badge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="flex justify-center items-center gap-6 mt-8"
+        >
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-[#2C5F2D]" />
+            <span className="text-xs text-gray-500">Secure Submission</span>
+          </div>
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star key={star} className="w-3 h-3 text-[#E8A87C] fill-[#E8A87C]" />
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="w-4 h-4 text-[#2C5F2D]" />
+            <span className="text-xs text-gray-500">24/7 Support</span>
+          </div>
+        </motion.div>
 
         {/* Footer */}
-        <div className="text-center mt-10 text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} northstarautologistics.com. All rights reserved.</p>
-               <span>
-          Developed and Managed by{" "}
-          <strong className="text-[#B23A2F] mt-2"><a href='https://growthflowmedia.com'>GROWTH FLOW MEDIA</a></strong>
-        </span>
-         
+        <div className="text-center mt-10 text-gray-400 text-xs">
+          <p>© {new Date().getFullYear()} amerifreightautologistics.com. All rights reserved.</p>
+          <p className="mt-1">
+            Developed and Managed by{" "}
+            <a href='https://growthflowmedia.com' target="_blank" rel="noopener noreferrer" className="text-[#2C5F2D] font-semibold hover:underline">
+              GROWTH FLOW MEDIA
+            </a>
+          </p>
         </div>
       </div>
     </div>

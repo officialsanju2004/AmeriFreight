@@ -1,46 +1,63 @@
-
-import { Truck, Shield, Star, Phone, Mail, MapPin, Clock, CheckCircle, ArrowRight, ChevronRight, Users, Award, Link,Car,Route,Wrench,Calendar,Trophy,ShieldCheck,HardHat,Tag } from 'lucide-react';
+import { Truck, Shield, Star, Phone, Mail, MapPin, Clock, CheckCircle, ArrowRight, ChevronRight, Users, Award, Link, Car, Route, Wrench, Calendar, Trophy, ShieldCheck, HardHat, Tag } from 'lucide-react';
 import { Home, Info, MessageCircle, Youtube } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { FaHome, FaBuilding, FaChartLine, FaShieldAlt, FaSmile, FaClock, FaCloudscale } from 'react-icons/fa';
 import axios from 'axios';
-import logo from '../Images/logo.jpg'
-import image5 from '../Images/image5.jpg'
-import image6 from '../Images/image6.jpg'
-
-import image7 from '../Images/image7.jpg'
-import image8 from '../Images/image8.jpg'
-import image9 from '../Images/image9.jpg'
-import image10 from '../Images/image10.jpg'
-import image11 from '../Images/image11.jpg'
-
-
-import image4 from '../Images/image4.jpg'
-import image2 from '../Images/image2.jpg'
-
+import logo from '../Images/logo.png';
+import image5 from '../Images/image5.jpg';
+import image6 from '../Images/image6.jpg';
+import image7 from '../Images/image7.jpg';
+import image8 from '../Images/image8.jpg';
+import image9 from '../Images/image9.jpg';
+import image10 from '../Images/image10.jpg';
+import image11 from '../Images/image11.jpg';
+import enclosed from '../Images/enclosed.jpg';
+import atv from '../Images/Atv.jpg';
+import heavy from '../Images/heavy.jpg';
+import TestimonialsSection from './Components/Testimonials';
+import image4 from '../Images/image4.jpg';
+import image2 from '../Images/image2.jpg';
 import { toast, ToastContainer } from 'react-toastify';
-
-import { 
- 
- 
-  Menu, 
-  X,
-  ChevronLeft,
- 
-} from 'lucide-react';
+import { Menu, X, ChevronLeft } from 'lucide-react';
 import Navbar from './Navbar';
-import image1 from '../Images/image1.jpg'
+import image1 from '../Images/image1.jpg';
 import Footer from './Components/Footer';
 import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
-// Color Palette
+// Modern Professional Color Palette
 const colors = {
-  navy: '#1F3A5F',
-  red: '#B23A2F',
-  cream: '#F2E9D8',
-  white: '#FFFFFF',
+  primary: '#0A2647',      // Deep Navy
+  secondary: '#2C5F2D',    // Forest Green
+  accent: '#E8A87C',       // Warm Sand
+  light: '#F9F6F0',        // Cream White
+  dark: '#1B2A3B',         // Dark Slate
+  gradientStart: '#0A2647',
+  gradientEnd: '#2C5F2D',
+  highlight: '#E27D60',
+  textLight: '#F9F6F0',
+  textDark: '#1B2A3B',
+  cardBg: '#FFFFFF',
 };
+
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+};
+
+const scaleOnHover = {
+  whileHover: { scale: 1.03, transition: { duration: 0.3, ease: "easeInOut" } },
+  whileTap: { scale: 0.98 }
+};
+
+const glassMorphism = "backdrop-blur-sm bg-white/90 shadow-xl";
 
 export default function AutoTransportWebsite() {
   const [formData, setFormData] = useState({
@@ -52,948 +69,275 @@ export default function AutoTransportWebsite() {
     message: ''
   });
   const [scrolled, setScrolled] = useState(false);
-  const navigate=useNavigate();
-   // Parallax scroll effect
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      if (isScrolled !== scrolled) setScrolled(isScrolled);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const statsRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  let [enquiryList, setEnquiryList] = useState([]);
-      const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(!formData.email.endsWith("@gmail.com")){
-      toast.error("incorrect email!!");
+    if (!formData.email.endsWith("@gmail.com")) {
+      toast.error("Incorrect email!!");
       return;
-    }   
-    axios
-      .post("https://northstar-autologistics-cs1g.vercel.app/web/api/enquiry/enquiry-insert", formData)
+    }
+    axios.post("https://northstar-autologistics123.vercel.app/web/api/enquiry/enquiry-insert", formData)
       .then((res) => {
         toast.success("Message Sent!!!");
-        setFormData({ name: '',
-        email: '',
-        subject: '',
-        pickup: '',
-        dropoff: '',
-        message: '' });
-        navigate("/success-page")
-      }).catch((err)=>{
+        setFormData({ name: '', email: '', subject: '', pickup: '', dropoff: '', message: '' });
+        navigate("/success-page");
+      }).catch((err) => {
         toast.error("Failed to send message");
         console.log(err);
       });
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const services = [
-    {
-      title: "Open Trailers",
-      description: "Open trailer transport offers cost-effective shipping with high efficiency.Perfect for standard cars and bikes ensuring timely delivery with reliable handing across all distances.",
-      link:"/OpenTrailers",
-      image: image4
-    },
-    {
-      title: "Enclosed Trailers",
-      description: "Enclosed Trailers provide maximum protection for your vehicle from weather and road debris.Ideal for luxury,classic,or exotic cars,ensuring safe,secure,and damage-free transport every time.",
-      link:"/EnclosedTrailerTransport",
-      image: image8
-    },
-    {
-      title: "Flatbed Trailers",
-      description: "Flatbed trailers handle oversized and heavy vehicles with ease,offering versatile and secure transport solutions.Perfect for trucks,construction equipment,and non-standard loads across long distances safely.",
-       link:"/FlatbedTrailer",
-      image: image7
-    },
-    {
-      title: "Bike/RTV/ATV Shipping",
-      description: "Specialized shipping for bikes, RTVs, and ATVs with secure loading and handling.Fast,reliable transport ensuring your ride reaches safely,whether across cities or states.  ",
-     link:"/BikeAtvRtvTransport",
-      image: image9
-    },
-    {
-      title: "Boat Shipping",
-      description: "Safe and reliable boat shipping with expert handling and secure transport.We ensure timely delivery of your boat,protecting it from damage during transit,anywhere across coastal or inland routes.",
-      link:"/BoatShipping",
-      image: image11
-    },
-    {
-      title: "Heavy Vehicles",
-      description: "Expert transport solutions for heavy vehicles like trucks and machinery.Our Specialized trailers and trained-crew ensure safe,on-time delivery,handling weight and size challenges effortlessly.",
-       link:"/HeavyVehicleTransport",
-      image:image2
-    }
+    { title: "Open Trailers", description: "Open trailer transport offers cost-effective shipping with high efficiency. Perfect for standard cars and bikes ensuring timely delivery with reliable handing across all distances.", link: "/OpenTrailers", image: image4 },
+    { title: "Enclosed Trailers", description: "Enclosed Trailers provide maximum protection for your vehicle from weather and road debris. Ideal for luxury, classic, or exotic cars, ensuring safe, secure, and damage-free transport every time.", link: "/EnclosedTrailerTransport", image: enclosed },
+    { title: "Flatbed Trailers", description: "Flatbed trailers handle oversized and heavy vehicles with ease, offering versatile and secure transport solutions. Perfect for trucks, construction equipment, and non-standard loads across long distances safely.", link: "/FlatbedTrailer", image: image7 },
+    { title: "Bike/RTV/ATV Shipping", description: "Specialized shipping for bikes, RTVs, and ATVs with secure loading and handling. Fast, reliable transport ensuring your ride reaches safely, whether across cities or states.", link: "/BikeAtvRtvTransport", image: atv },
+    { title: "Boat Shipping", description: "Safe and reliable boat shipping with expert handling and secure transport. We ensure timely delivery of your boat, protecting it from damage during transit, anywhere across coastal or inland routes.", link: "/BoatShipping", image: image11 },
+    { title: "Heavy Vehicles", description: "Expert transport solutions for heavy vehicles like trucks and machinery. Our Specialized trailers and trained-crew ensure safe, on-time delivery, handling weight and size challenges effortlessly.", link: "/HeavyVehicleTransport", image: heavy }
   ];
 
   const features = [
-    { icon: <Truck className="w-8 h-8" />, title: "Trusted Carriers", desc: "We partner only with licensed,verified,and highly rated carriers.Your vehicle is handled by professionals who prioritize safety and care." },
-    { icon: <Shield className="w-8 h-8" />, title: "Hassle-Free", desc: "No pressure,no hidden fees,and no unnecessary complications.We keep the process simple,transparent and stress-free.Just Straightforward service from pick up to delivery." },
-    { icon: <Clock className="w-8 h-8" />, title: "On-Time Delivery", desc: "We respect your time and stick to committed schedules.Your vehicle reaches its destination safely and right on time.Reliable delivery without excuses or delays." },
-    { icon: <Users className="w-8 h-8" />, title: "Real Relationships", desc: "We believe in honest communication and long term trust.Our team stays connected with you at every step.Because real service starts with real relationships." },
+    { icon: <Truck className="w-8 h-8" />, title: "Trusted Carriers", desc: "We partner only with licensed, verified, and highly rated carriers. Your vehicle is handled by professionals who prioritize safety and care." },
+    { icon: <Shield className="w-8 h-8" />, title: "Hassle-Free", desc: "No pressure, no hidden fees, and no unnecessary complications. We keep the process simple, transparent and stress-free." },
+    { icon: <Clock className="w-8 h-8" />, title: "On-Time Delivery", desc: "We respect your time and stick to committed schedules. Your vehicle reaches its destination safely and right on time." },
+    { icon: <Users className="w-8 h-8" />, title: "Real Relationships", desc: "We believe in honest communication and long term trust. Our team stays connected with you at every step." },
   ];
 
-  const steps = [
-    { number: "01", title: "Request Quote", desc: "Fill out our simple form for a free, no-obligation quote" },
-    { number: "02", title: "Get Scheduled", desc: "We match you with the perfect carrier and schedule pickup" },
-    { number: "03", title: "Track Shipment", desc: "Monitor your vehicle's journey with real-time updates" },
-    { number: "04", title: "Delivery", desc: "Your vehicle arrives safely at its destination" },
-  ];
-   // Auto-slide effect for mobile carousel
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % services.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }, []);
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentSlide((prev) => (prev + 1) % services.length), 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-
-  // Animated counters
   const Counter = ({ end, duration = 2000, label }) => {
     const [count, setCount] = useState(0);
     const countRef = useRef(null);
-
     useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            let start = 0;
-            const increment = end / (duration / 16);
-            const timer = setInterval(() => {
-              start += increment;
-              if (start > end) {
-                setCount(end);
-                clearInterval(timer);
-              } else {
-                setCount(Math.floor(start));
-              }
-            }, 16);
-            return () => clearInterval(timer);
-          }
-        },
-        { threshold: 0.5 }
-      );
-
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          let start = 0;
+          const increment = end / (duration / 16);
+          const timer = setInterval(() => {
+            start += increment;
+            if (start > end) { setCount(end); clearInterval(timer); }
+            else setCount(Math.floor(start));
+          }, 16);
+          return () => clearInterval(timer);
+        }
+      }, { threshold: 0.5 });
       if (countRef.current) observer.observe(countRef.current);
       return () => observer.disconnect();
     }, [end, duration]);
-
     return (
-      <div className="text-center " ref={countRef}>
-        <div className="text-5xl md:text-6xl font-bold text-[#1F3A5F] mb-2">
-          {count.toLocaleString()}+
-        </div>
-        <div className="text-lg text-[#1F3A5F]">{label}</div>
+      <div className="text-center" ref={countRef}>
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] bg-clip-text text-transparent mb-2">{count.toLocaleString()}+</div>
+        <div className="text-lg text-gray-600 font-medium">{label}</div>
       </div>
     );
   };
-    // Number counting animation
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const element = entry.target;
-              const target = parseInt(element.getAttribute('data-target'));
-              const duration = 2000;
-              const start = 0;
-              const increment = target / (duration / 16);
-              let current = start;
-              
-              const updateCount = () => {
-                current += increment;
-                if (current < target) {
-                  element.textContent = Math.floor(current);
-                  requestAnimationFrame(updateCount);
-                } else {
-                  element.textContent = target;
-                }
-              };
-              updateCount();
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-  
-      const statElements = document.querySelectorAll('.stat-number');
-      statElements.forEach((el) => observer.observe(el));
-  
-      return () => observer.disconnect();
-    }, []);
-  
-    const nextSlide = () => {
-      setCurrentSlide((prev) => (prev + 1) % services.length);
-    };
-  
-    const prevSlide = () => {
-      setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
-    };
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % services.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F2E9D8] via-white to-[#F2E9D8]/50">
-      <ToastContainer/>
-         <style jsx>{`
-    @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 3s ease-in-out infinite;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F2E9D8;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1F3A5F;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #B23A2F;
-}
+    <div className="min-h-screen bg-[#F9F6F0]">
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
+      <style jsx>{`
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        .animate-fade-in-up { animation: fade-in-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        .hover-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .hover-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25); }
+        .glass-effect { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); }
+        .gradient-border { position: relative; background: white; border-radius: 1rem; }
+        .gradient-border::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(135deg, #0A2647, #2C5F2D, #E8A87C); border-radius: 1rem; z-index: -1; opacity: 0; transition: opacity 0.4s; }
+        .gradient-border:hover::before { opacity: 1; }
       `}</style>
-     {/* Navigation */}
-     <Navbar/>
-   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={image1}
-          alt="Luxury Home Interior"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-      </div>
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute top-20 left-10 w-72 h-72 bg-primary-500 rounded-full mix-blend-overlay filter blur-3xl"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500 rounded-full mix-blend-overlay filter blur-3xl"
-        />
-      </div>
+      <Navbar />
 
-      {/* Main Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-start">
-          {/* Main Heading with Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
-              Reliable and Budget Auto Transport<span className="text-primary-600"> Service Across The Country</span><br />
-             
-                Dream Home
+      {/* Hero Section - Modern Redesign */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={image1} alt="Luxury Auto Transport" className="w-full h-full object-cover" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647]/85 via-[#0A2647]/70 to-[#2C5F2D]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
+              Reliable & Budget
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-[#E27D60] mt-2">Auto Transport</span>
             </h1>
-                
-            <button  onClick={()=>{window.location.href="/contact"}} className='pointer-cursor py-3 px-6 border text-white rounded-xl hover:scale-105'>Get a Quote</button>
-                  
+            <p className="text-xl text-white/90 max-w-2xl mb-10 leading-relaxed">Nationwide vehicle shipping with premium care, transparent pricing, and on-time delivery guaranteed.</p>
+            <motion.button onClick={() => window.location.href = "/contact"} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="px-10 py-4 bg-gradient-to-r from-[#2C5F2D] to-[#0A2647] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300">
+              Get a Free Quote
+            </motion.button>
           </motion.div>
 
-       
-
-        
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="absolute  left-1/2 transform -translate-x-1/2"
-          >
-            <div className="flex flex-col items-center">
-              <span className="text-gray-300 text-sm mb-2">Scroll to explore</span>
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-              >
-                <div className="w-1 h-3 bg-white/50 rounded-full mt-2" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-white/70 text-sm tracking-wider">SCROLL TO EXPLORE</span>
+              <motion.div animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2" />
               </motion.div>
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Gradient Overlay Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent" />
-    </section>
-
-
-      {/* Quote Form Section */}
-      <section className="py-20 bg-[#F2E9D8]">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <h2 className="text-4xl font-bold text-[#1F3A5F] mb-6">
-                Car Transport isn't Just Our Business <br/><span className="text-[#B23A2F]">-It's Our Passion. </span>
-              </h2>
-              <p className="text-lg font-bold text-[#1F3A5F] mb-8 leading-relaxed">
-              At Northstar Autologstics LLC,California , we pride ourselves on delivering top-tier auto transport services at some of the most competitive prices in the market.
-              </p>
-               <p className="text-lg  text-[#1F3A5F] mb-8 leading-relaxed">
-             Let’s be real — the industry is flooded with brokers. So, what makes us different? Simple:<span className='font-bold'> we actually care.</span> We don’t see you as just another number. We’re in it for the long haul — building real relationships, offering genuine support, and making sure your experience is stress-free from start to finish.
-              </p>
-               <p className="text-lg  text-[#1F3A5F] mb-8 leading-relaxed">
-            We work only with<span className='font-bold'>the most trusted and reliable carriers</span>  to ensure your vehicle gets where it needs to go, safely and on time. Whether you have a simple question or need help with a complex shipping need, we’re here for it — no pressure, no hidden fees.
-              </p>
-              <p className="text-lg  text-[#1F3A5F] mb-8 leading-relaxed">
-        When you choose Northstar Autologstics LLC,California, you’re choosing <span className='font-bold'>affordable, dependable, and hassle-free auto transport</span> you can count on.           </p>
-              <p className="text-lg  text-[#1F3A5F] mb-8 leading-relaxed">
-         So, what are you waiting for?
-Let’s get your vehicle moving — the right way.      </p>
-<hr className='text-white mb-8'/>
-<div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 bg-gradient-to-r from-[#1F3A5F]/5 to-transparent rounded-xl border border-[#1F3A5F]/10">
-  <div className="flex items-center gap-2">
-    <Phone className="w-6 h-6 text-[#1F3A5F]" />
-    <span className="text-sm font-semibold text-[#1F3A5F]"><a href="tel:+12093958481" className='cursor-pointer'>Click to Book Now</a></span>
-  </div>
-  
-  <div className="hidden sm:block w-px h-6 bg-[#1F3A5F]/20"></div>
-  
-  <div className="flex items-center gap-3">
-    <div className="bg-[#1F3A5F] text-white p-2 rounded-lg">
-      <Phone className="w-5 h-5" />
-    </div>
-    <div>
-      <p className="text-xs font-medium text-gray-600">Call us 24/7</p>
-      <a 
-        href="tel:+12093958481" 
-        className="text-xl md:text-2xl font-bold text-[#1F3A5F] hover:text-[#B23A2F] transition-colors"
-      >
-        +1 (209)395-8481
-      </a>
-    </div>
-  </div>
-</div>
-
-              
-        
-            </div>
-
-            {/* Form */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8 transform hover:shadow-3xl transition-shadow duration-500">
-                <h2 className="text-3xl font-bold text-[#1F3A5F]  mb-8 text-center">
-              Request A Free Quote
-            </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Your name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Your email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                    placeholder="Vehicle Transport Inquiry"
-                    required
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Pick Up Location *
-                    </label>
-                    <input
-                      type="text"
-                      name="pickup"
-                      value={formData.pickup}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="City, State"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Drop Off Location *
-                    </label>
-                    <input
-                      type="text"
-                      name="dropoff"
-                      value={formData.dropoff}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="City, State"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                    Your message (optional)
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none min-h-[120px] resize-none"
-                    placeholder="Tell us about your vehicle and any special requirements..."
-                  ></textarea>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <input
-                    type="checkbox"
-                    id="policy"
-                    className="mt-1 w-5 h-5 text-[#B23A2F] focus:ring-[#B23A2F]"
-                    required
-                  />
-                  <label htmlFor="policy" className="text-gray-600 text-sm">
-                    By providing your details you agree to receive transactional SMS according to our{' '}
-                    <a href="/privacy-policy" className="text-[#B23A2F] font-semibold hover:underline">Privacy Policy</a>
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-[#1F3A5F] text-white rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 shadow-lg"
-                >
-                  Get Free Quote
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1F3A5F] mb-4">
-              What Makes Us <span className="text-[#B23A2F]">Different</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We don't see you as just another number. We're committed to providing exceptional service.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="group bg-[#F2E9D8]/50 p-8 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#1F3A5F]/10"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1F3A5F] to-[#B23A2F] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-white">
-                    {feature.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#1F3A5F] mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
-
-      {/* Mobile Carousel Section */}
-      <section id="services" className="py-16" style={{ backgroundColor: '#f9fafb' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1F3A5F] mb-4">
-             SERVICES <span className="text-[#B23A2F]">WE PROVIDE</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-             Insert a meaningfull line to evaluate the headline
-            </p>
-          </div>
-          {/* Mobile Carousel */}
-          <div className="md:hidden relative">
-            <div className="overflow-hidden">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {services.map((service, index) => (
-                  <div key={index}  onClick={()=>{window.location.href=service.link}}className="w-full flex-shrink-0 px-4">
-                    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover-card">
-                      <div className="h-48 overflow-hidden">
-                        <img 
-                          src={service.image} 
-                          alt={service.title}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <div className="flex items-center mb-4">
-                         
-                          <h3 onClick={()=>{window.location.href=service.link}} className="text-xl font-bold" style={{ color: '#1e3a8a' }}>{service.title}</h3>
-                        </div>
-                        <p  onClick={()=>{window.location.href=service.link}} style={{ color: '#4b5563' }}>{service.description}</p>
-                      </div>
+      {/* Quote Form Section - Redesigned */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <div className="relative">
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-[#E8A87C]/20 to-[#2C5F2D]/20 rounded-full blur-3xl" />
+                <h2 className="text-5xl font-bold text-[#0A2647] mb-8 leading-tight">
+                  Car Transport isn't Just Our Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">—It's Our Passion.</span>
+                </h2>
+                <div className="space-y-6 text-gray-700">
+                  <p className="text-lg font-semibold text-[#0A2647]">At Ameri Freight Autologistics LLC, California, we pride ourselves on delivering top-tier auto transport services at some of the most competitive prices in the market.</p>
+                  <p className="text-lg leading-relaxed">Let's be real — the industry is flooded with brokers. So, what makes us different? Simple: <span className="font-bold text-[#2C5F2D]">we actually care.</span> We don't see you as just another number.</p>
+                  <p className="text-lg leading-relaxed">We work only with <span className="font-bold text-[#2C5F2D]">the most trusted and reliable carriers</span> to ensure your vehicle gets where it needs to go, safely and on time.</p>
+                </div>
+                <div className="mt-10 p-6 bg-gradient-to-r from-[#0A2647]/5 to-transparent rounded-2xl border-l-4 border-[#2C5F2D]">
+                  <div className="flex flex-wrap items-center gap-6">
+                    <Phone className="w-10 h-10 text-[#2C5F2D]" />
+                    <div>
+                      <p className="text-sm text-gray-500">24/7 Customer Support</p>
+                      <a href="tel:+12093958481" className="text-3xl font-bold text-[#0A2647] hover:text-[#2C5F2D] transition">+1 (209) 395-8481</a>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-            
-            {/* Carousel Controls */}
-            <button 
-              onClick={prevSlide}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-            >
-              <ChevronLeft className="w-6 h-6" style={{ color: '#1e40af' }} />
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-            >
-              <ChevronRight className="w-6 h-6" style={{ color: '#1e40af' }} />
-            </button>
+            </motion.div>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {services.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? '' : 'opacity-50'}`}
-                  style={{ 
-                    backgroundColor: currentSlide === index ? '#2563eb' : '#d1d5db'
-                  }}
-                />
-              ))}
-            </div>
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-3xl blur-2xl opacity-20" />
+              <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-10">
+                <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] bg-clip-text text-transparent">Request A Free Quote</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label><input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="John Doe" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label><input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="john@example.com" required /></div>
+                  </div>
+                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label><input type="text" name="subject" value={formData.subject} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="Vehicle Transport Inquiry" required /></div>
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location *</label><input type="text" name="pickup" value={formData.pickup} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="City, State" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Dropoff Location *</label><input type="text" name="dropoff" value={formData.dropoff} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="City, State" required /></div>
+                  </div>
+                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Additional Message</label><textarea name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none resize-none" placeholder="Tell us about your vehicle..."></textarea></div>
+                  <div className="flex items-center gap-3"><input type="checkbox" id="policy" className="w-5 h-5 rounded border-gray-300 text-[#2C5F2D] focus:ring-[#2C5F2D]" required /><label htmlFor="policy" className="text-sm text-gray-600">By providing your details you agree to our <a href="/privacy-policy" className="text-[#2C5F2D] font-semibold hover:underline">Privacy Policy</a></label></div>
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full py-4 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all">Get Free Quote →</motion.button>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section - Modern Cards */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-[#0A2647] mb-4">What Makes Us <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">Different</span></h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">We don't see you as just another number. We're committed to providing exceptional service.</p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, idx) => (
+              <motion.div key={idx} variants={fadeUp} whileHover={{ y: -10 }} className="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md"><div className="text-white">{feature.icon}</div></div>
+                <h3 className="text-2xl font-bold text-[#0A2647] mb-3">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-gradient-to-br from-[#F9F6F0] to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-[#0A2647] mb-4">Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">Services</span></h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive vehicle transport solutions tailored to your needs</p>
+          </motion.div>
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden relative">
+            <div className="overflow-hidden"><div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>{services.map((service, idx) => (<div key={idx} onClick={() => window.location.href = service.link} className="w-full flex-shrink-0 px-4 cursor-pointer"><div className="bg-white rounded-2xl shadow-xl overflow-hidden hover-card"><div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" /></div><div className="p-6"><h3 className="text-2xl font-bold text-[#0A2647] mb-3">{service.title}</h3><p className="text-gray-600">{service.description}</p></div></div></div>))}</div></div>
+            <button onClick={prevSlide} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronLeft className="w-6 h-6 text-[#0A2647]" /></button>
+            <button onClick={nextSlide} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronRight className="w-6 h-6 text-[#0A2647]" /></button>
+            <div className="flex justify-center mt-8 gap-2">{services.map((_, idx) => (<button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'w-8 bg-[#2C5F2D]' : 'bg-gray-300'}`} />))}</div>
           </div>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} onClick={()=>{window.location.href=service.link}}className="bg-white rounded-xl shadow-lg overflow-hidden hover-card">
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <span className="text-3xl mr-3">{service.icon}</span>
-                    <h3 onClick={()=>{window.location.href=service.link}} className="text-xl font-bold" style={{ color: '#1e3a8a' }}>{service.title}</h3>
-                  </div>
-                  <p onClick={()=>{window.location.href=service.link}} style={{ color: '#4b5563' }}>{service.description}</p>
-                </div>
-              </div>
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, idx) => (
+              <motion.div key={idx} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ y: -8 }} onClick={() => window.location.href = service.link} className="bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-2xl group">
+                <div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" /></div>
+                <div className="p-6"><h3 className="text-2xl font-bold text-[#0A2647] mb-3">{service.title}</h3><p className="text-gray-600 leading-relaxed">{service.description}</p></div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-   {/* Quote Form Section */}
-<section className="py-16 md:py-20 bg-[#F2E9D8]">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-      {/* Left Content with Image */}
-      <div className="lg:col-span-5 flex flex-col">
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex-grow flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1F3A5F] mb-4 md:mb-6">
-            Request A <span className="text-[#B23A2F]">Free Quote</span>
-          </h2>
-          
-          <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8 leading-relaxed">
-            When you choose <span className="font-bold text-[#1F3A5F]">Northstar Autologistics LLC, California</span>, you're choosing 
-            reliable, dependable, and hassle-free auto transport you can count on.
-          </p>
-          
-         
-          {/* Image that extends to match form height */}
-          <div className="relative h-48 md:h-64 lg:h-full min-h-[200px] rounded-xl overflow-hidden mt-4">
-            <img
-              src={image1}
-              alt="Auto Transport Services"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1F3A5F]/80 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="text-white">
-                <h3 className="text-xl md:text-2xl font-bold mb-2">Nationwide Coverage</h3>
-                <p className="text-sm md:text-base opacity-90">Serving all 48 continental states with reliable transport</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Form - Takes remaining 7 columns */}
-      <div className="lg:col-span-7">
-        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-10 h-full transform hover:shadow-3xl transition-shadow duration-500">
-          <h2 className="text-3xl font-bold text-[#1F3A5F]  mb-8 text-center">
-              Request A Free Quote
-            </h2>
-          
-                 <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Your name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Your email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                    placeholder="Vehicle Transport Inquiry"
-                    required
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Pick Up Location *
-                    </label>
-                    <input
-                      type="text"
-                      name="pickup"
-                      value={formData.pickup}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="City, State"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                      Drop Off Location *
-                    </label>
-                    <input
-                      type="text"
-                      name="dropoff"
-                      value={formData.dropoff}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none"
-                      placeholder="City, State"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#1F3A5F] mb-2">
-                    Your message (optional)
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1F3A5F] focus:ring-2 focus:ring-[#1F3A5F]/20 transition-all duration-300 outline-none min-h-[120px] resize-none"
-                    placeholder="Tell us about your vehicle and any special requirements..."
-                  ></textarea>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <input
-                    type="checkbox"
-                    id="policy"
-                    className="mt-1 w-5 h-5 text-[#B23A2F] focus:ring-[#B23A2F]"
-                    required
-                  />
-                  <label htmlFor="policy" className="text-gray-600 text-sm">
-                    By providing your details you agree to receive transactional SMS according to our{' '}
-                    <a href="/privacy-policy" className="text-[#B23A2F] font-semibold hover:underline">Privacy Policy</a>
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                
-                  className="w-full py-4 bg-[#1F3A5F] text-white rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 shadow-lg"
-                >
-                  Get Free Quote
-                </button>
-              </form>
-      
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      
-   <div className="bg-[#F2E9D8] text-[#1F3A5F]">
-     
-
-     
-         {/* Features Section */}
-      <section className="py-20 bg-white">
+      {/* Why Choose Us */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Why Choose Us
-        </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-            {
-              title: "Affordable",
-               icon:<Trophy className="w-8 h-8" />,
-              desc:
-                "We offer premium auto transport services at the most affordable prices, with zero hidden charges",
-            },
-            {
-              title: "On Time Shipping",
-               icon:<Clock className="w-8 h-8" />,
-              desc:
-                "We value your time — guaranteed on-time pickup and delivery, every single time, without excuses",
-            },
-            {
-              title: "Licensed And Insured",
-               icon:<ShieldCheck className="w-8 h-8" />,
-              desc:
-                "Fully licensed and insured for your complete peace of mind — your vehicle is protected every mile of the journey.",
-            },
-            {
-              title: "Quick Response",
-               icon:<MessageCircle className="w-8 h-8" />,
-              desc:
-                "Speedy support is our standard — quick answers, instant updates, and zero delays in communication.",
-            },
-            {
-              title: "Trained Workers",
-               icon:<HardHat className="w-8 h-8" />,
-              desc:
-                "Skilled professionals who know the ins and outs of vehicle logistics, ensuring safe and timely transport every time",
-            },
-            {
-              title: "Years Of Experience",
-               icon:<Tag className="w-8 h-8" />,
-              desc:
-                "Trusted by thousands — our years of experience speak through every smooth, on-time delivery we make",
-            },
-          ].map((item, index) => (
-              <div 
-                key={index}
-                className="group bg-[#F2E9D8]/50 p-8 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#1F3A5F]/10"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1F3A5F] to-[#B23A2F] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-white">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#1F3A5F] mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16"><h2 className="text-5xl font-bold text-[#0A2647]">Why Choose Us</h2></motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[{ title: "On Time Shipping", icon: <Clock className="w-8 h-8" />, desc: "Guaranteed on-time pickup and delivery, every single time." }, { title: "Licensed And Insured", icon: <ShieldCheck className="w-8 h-8" />, desc: "Fully licensed and insured for complete peace of mind." }, { title: "Quick Response", icon: <MessageCircle className="w-8 h-8" />, desc: "Speedy support, instant updates, and zero delays." }, { title: "Trained Workers", icon: <HardHat className="w-8 h-8" />, desc: "Skilled professionals ensuring safe and timely transport." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-gray-100"><div className="w-16 h-16 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#0A2647] mb-3">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+          </motion.div>
         </div>
       </section>
-       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h3 className="text-center text-sm font-semibold text-[#B23A2F] mb-2">
-          Understanding Our Pricing
-        </h3>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Transparent Auto Transport Pricing
-        </h2>
-        <p className="text-center max-w-2xl mx-auto mb-12 text-[#1F3A5F]/80">
-          We believe in complete pricing transparency. Here are the key factors
-          that influence your shipping quote:
-        </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-            {
-              title: "Vehicle Specifications",
-               icon:<Car className="w-8 h-8" />,
-              desc:
-                "The size, weight, and type of your vehicle affect shipping costs. Larger vehicles like SUVs or trucks may require special equipment or handling. We provide competitive rates for all vehicle types.",
-            },
-           
-            {
-              title: "Distance & Route",
-              icon:<Route className="w-8 h-8" />,
-              desc:
-                "Longer distances have a higher total cost but lower per-mile rates. Popular routes often offer better pricing due to carrier availability. We optimize routes for cost-effectiveness.",
-            },
-            {
-              title: "Vehicle Condition",
-              icon:<Wrench className="w-8 h-8" />,
-              desc:"Non-running vehicles require special equipment for loading and unloading, which affects the price. Our team has extensive experience handling both operable and inoperable vehicles safely.",
-            },
-            {
-              title: "Seasonal Timing",
-              icon:<Calendar className="w-8 h-8" />,
-              desc:
-                "Transport costs can vary by season. Summer months and snowbird routes typically see higher demand. Book in advance for the best rates and availability.",
-            },
-            {
-              title: "Transport Method",
-              icon:<Truck className="w-8 h-8" />,
-              desc:
-                "Non-running vehicles need special tools for safe loading and unloading, which can change the cost. Our skilled team knows how to handle both operable and inoperable cars with care.",
-            },
-          ].map((item, index) => (
-              <div 
-                key={index}
-                className="group bg-[#F2E9D8]/50 p-8 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#1F3A5F]/10"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1F3A5F] to-[#B23A2F] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-white">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#1F3A5F] mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
+      {/* Pricing Factors */}
+      <section className="py-24 bg-gradient-to-br from-[#F9F6F0] to-white">
+        <div className="container mx-auto px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
+            <span className="text-sm font-semibold text-[#2C5F2D] tracking-wider uppercase">Pricing Transparency</span>
+            <h2 className="text-5xl font-bold text-[#0A2647] mt-2">Understanding Your Quote</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">Key factors that influence your shipping cost — no surprises, just clarity.</p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[{ title: "Vehicle Specifications", icon: <Car className="w-8 h-8" />, desc: "Size, weight, and type affect costs. We provide competitive rates for all vehicles." }, { title: "Distance & Route", icon: <Route className="w-8 h-8" />, desc: "Longer distances mean lower per-mile rates. We optimize for cost-effectiveness." }, { title: "Vehicle Condition", icon: <Wrench className="w-8 h-8" />, desc: "Non-running vehicles require special equipment. Our team handles it safely." }, { title: "Seasonal Timing", icon: <Calendar className="w-8 h-8" />, desc: "Book in advance for the best rates during peak seasons." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"><div className="w-14 h-14 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center mb-5"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#0A2647] mb-2">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+          </motion.div>
+        </div>
+      </section>
+
+      <TestimonialsSection />
+
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <Counter end={3} label="Years in Business" /><Counter end={53520} label="Happy Clients" /><Counter end={563} label="Daily Projects" /><Counter end={173} label="Trained Staff" />
           </div>
         </div>
       </section>
 
-
-            <section className="py-20 ">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 ">
-            <Counter end={3} label="Years in Business" className="!text-[#1F3A5F]" />
-            <Counter end={53520} label="Happy Clients" className="text-[#1F3A5F]"  />
-            <Counter end={563} label="Daily Project Completed" className="text-[#1F3A5F]"  />
-            <Counter end={173} label="Trained Staff" className="text-[#1F3A5F]" />
-          </div>
-        </div>
-      </section>
-   
-    </div>
-
-
- 
- 
-
-<Footer/>
-
+      <Footer />
     </div>
   );
 }

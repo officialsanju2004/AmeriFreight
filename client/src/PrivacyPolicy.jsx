@@ -1,10 +1,36 @@
-import React, { useState } from 'react';
-import { Shield, Lock, Eye, Trash2, Database, Cookie, Phone, Mail, ChevronRight, AlertCircle, CheckCircle, ExternalLink, Users, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { Shield, Lock, Eye, Trash2, Database, Cookie, Phone, Mail, ChevronRight, AlertCircle, CheckCircle, ExternalLink, Users, FileText, Menu, X } from 'lucide-react';
 import Footer from './Components/Footer';
 import Navbar from './Navbar';
 
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const cardHover = {
+  whileHover: { y: -5, transition: { duration: 0.3 } }
+};
+
 export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState('overview');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sections = [
     { id: 'overview', title: 'Overview', icon: <Shield className="w-5 h-5" /> },
@@ -16,9 +42,9 @@ export default function PrivacyPolicy() {
   ];
 
   const privacyPoints = [
-    { icon: <Shield className="w-6 h-6" />, text: "No mobile information shared with third parties for marketing", color: "text-[#B23A2F]" },
-    { icon: <Lock className="w-6 h-6" />, text: "We don't ask for personal information unless truly needed", color: "text-[#1F3A5F]" },
-    { icon: <Database className="w-6 h-6" />, text: "We don't store personal information unnecessarily", color: "text-[#B23A2F]" },
+    { icon: <Shield className="w-6 h-6" />, text: "No mobile information shared with third parties for marketing", gradient: "from-[#0A2647] to-[#2C5F2D]" },
+    { icon: <Lock className="w-6 h-6" />, text: "We don't ask for personal information unless truly needed", gradient: "from-[#2C5F2D] to-[#E8A87C]" },
+    { icon: <Database className="w-6 h-6" />, text: "We don't store personal information unnecessarily", gradient: "from-[#0A2647] to-[#E8A87C]" },
   ];
 
   const rights = [
@@ -30,245 +56,358 @@ export default function PrivacyPolicy() {
     { icon: <Database className="w-6 h-6" />, title: "Data Portability", desc: "You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions." },
   ];
 
-  
+  const scrollToSection = (sectionId) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
-      <Navbar/> 
-    <div className="min-h-screen bg-[#F2E9D8] ">
-     
-      {/* Header */}
-      <div className="bg-[#1F3A5F] text-white py-16 ">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#B23A2F] rounded-2xl mb-6 mt-20">
-              <Shield className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
-            <p className="text-xl text-[#F2E9D8] mb-8">
-              Protecting your privacy is our top priority at Northstar Autologstics LLC,California
-            </p>
-       
-          </div>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-white via-[#F9F6F0] to-white">
+        {/* Animated Background */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Navigation */}
-     
+        {/* Hero Header */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="relative bg-gradient-to-r from-[#0A2647] via-[#0A2647] to-[#2C5F2D] text-white overflow-hidden"
+        >
+          {/* Decorative Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-2xl mb-8 shadow-xl"
+              >
+                <Shield className="w-10 h-10 text-white" />
+              </motion.div>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#E8A87C] bg-clip-text text-transparent"
+              >
+                Privacy Policy
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-xl text-white/80 mb-8"
+              >
+                Protecting your privacy is our top priority at Ameri Freight Autologistics LLC, California
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full"
+              >
+                <Lock className="w-4 h-4" />
+                <span className="text-sm">Last updated: March 2025</span>
+              </motion.div>
+            </div>
+          </div>
+          
+          {/* Curved bottom edge */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F9F6F0] to-transparent" />
+        </motion.div>
 
-          {/* Content Area */}
-          <div className="">
-            {/* Key Privacy Points */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {privacyPoints.map((point, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-[#F2E9D8] hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className={`w-12 h-12 bg-[#F2E9D8] rounded-xl flex items-center justify-center mb-4 ${point.color}`}>
-                    {point.icon}
-                  </div>
-                  <p className="text-gray-700 font-medium">{point.text}</p>
-                </div>
-              ))}
+        {/* Main Content */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden sticky top-20 z-30 bg-white/90 backdrop-blur-md rounded-xl shadow-md p-3 mb-4">
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="flex items-center justify-between w-full text-left"
+              >
+                <span className="font-semibold text-[#0A2647]">Navigation Menu</span>
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
             </div>
 
-            {/* Main Policy Content */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-              {/* Consent Section */}
-              <div className="mb-10">
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10   flex items-center justify-center mr-4">
-                   <CheckCircle className="w-5 h-5 text-[#B23A2F] flex-shrink-0 mt-1" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-[#1F3A5F]">Consent</h2>
-                    <p className="text-gray-600">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-      No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
-
-At Northstar Autologstics LLC,California accessible from <a href="https://northstarautologistics.com" className='text-red-500'>https://northstarautologistics.com</a> one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Northstar Autologstics LLC,California and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
-
-This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Northstar Autologstics LLC,California. This policy is not applicable to any information collected offline or via channels other than this website.
-We emphasize not sharing/disclosing/selling/trading our customers’ data to any third party.
-
-We don’t ask you for personal information unless we truly need it.
-
-We don’t share your personal information with anyone except to comply with the law or protect our rights.
-
-We don’t store personal information on our servers unless required for the ongoing operation of one of our services.
-                </p>
-              </div>
-
-       
-
-              {/* Information Collection */}
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">Information We Collect</h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  The personal information that you are asked to provide, and the reasons why you
-                  are asked to provide it, will be made clear to you at the point we ask you to
-                  provide your personal information.
-                </p>
-                <div className="bg-[#F2E9D8]/50 p-6 rounded-xl">
-                  <h4 className="font-bold text-[#1F3A5F] mb-3">When you contact us directly, we may receive:</h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {['Name', 'Email address', 'Phone number', 'Message contents', 'Attachments', 'Company name'].map((item) => (
-                      <li key={item} className="flex items-center">
-                        <div className="w-2 h-2 bg-[#B23A2F] rounded-full mr-3"></div>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* How We Use Information */}
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">How We Use Your Information We use the information we collect in various ways, including to:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    "Provide, operate, and maintain our website",
-                    "Improve, personalize, and expand our website",
-                    "Understand and analyze how you use our website",
-                    "Develop new products, services, features, and functionality",
-                    "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes",
-                    "Send you updates and marketing communications",
-                    "Find and prevent fraud"
-                  ].map((use, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#B23A2F] flex-shrink-0 mt-1" />
-                      <span className="text-gray-700">{use}</span>
+            {/* Sidebar Navigation */}
+            <AnimatePresence>
+              {(mobileMenuOpen || window.innerWidth >= 1024) && (
+                <motion.aside 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="lg:w-72 flex-shrink-0"
+                >
+                  <div className="sticky top-24 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                    <div className="mb-4 pb-4 border-b border-gray-100">
+                      <h3 className="font-bold text-[#0A2647]">On this page</h3>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Log Files */}
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">Log Files</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  Northstar Autologstics LLC,California follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services’ analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users’ movement on the website, and gathering demographic information.
-                </p>
-       
-              </div>
-               <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">Advertising Partners Privacy Policies </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                 You may consult this list to find the Privacy Policy for each of the advertising partners of Northstar Autologstics LLC,California. Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Northstar Autologistics, LLC California which are sent directly to users’ browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit. Note that Northstar AutoLogistics has no access to or control over these cookies that are used by third-party advertisers.
-                </p>
-       
-              </div>
-               <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">Third Party Privacy Policies </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                 Northstar Autologistics Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
-
-You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers’ respective websites.
-                </p>
-       
-              </div>
-                             <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">CCPA Privacy Rights (Do Not Sell My Personal Information) Under the CCPA, among other rights, California consumers have the right to:</h3>
-                <ul className="text-gray-700 mb-4 leading-relaxed">
-                   
-                        <li> Request that a business that collects a consumer’s personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
-                
-                 <li>Request that a business delete any personal data about the consumer that a business has collected.</li>
-                
-                 <li> Request that a business that sells a consumer’s personal data, not to sell the consumer’s personal data.</li>
-               
-               
-                </ul>
-                 <p className="text-gray-700 mb-4 leading-relaxed">
-                
-            If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
-                </p>
-            
-       
-              </div>
-
-
-              {/* Your Rights */}
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">GDPR Data Protection Rights We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {rights.map((right, index) => (
-                    <div
-                      key={index}
-                      className="bg-[#F2E9D8]/30 p-6 rounded-xl border border-[#1F3A5F]/10 hover:border-[#B23A2F]/30 transition-colors"
-                    >
-                      <div className="w-12 h-12 bg-[#1F3A5F] rounded-xl flex items-center justify-center mb-4">
-                        <div className="text-white">{right.icon}</div>
+                    <nav className="space-y-1">
+                      {sections.map((section) => (
+                        <button
+                          key={section.id}
+                          onClick={() => scrollToSection(section.id)}
+                          className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-3 group ${
+                            activeSection === section.id
+                              ? 'bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white shadow-md'
+                              : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#0A2647]'
+                          }`}
+                        >
+                          <span className={activeSection === section.id ? 'text-white' : 'text-[#2C5F2D] group-hover:text-[#0A2647]'}>
+                            {section.icon}
+                          </span>
+                          <span className="text-sm font-medium">{section.title}</span>
+                          {activeSection === section.id && (
+                            <ChevronRight className="w-4 h-4 ml-auto" />
+                          )}
+                        </button>
+                      ))}
+                    </nav>
+                    
+                    {/* Contact Card */}
+                    <div className="mt-6 p-4 bg-gradient-to-br from-[#F9F6F0] to-white rounded-xl border border-[#0A2647]/10">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-lg flex items-center justify-center">
+                          <Phone className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-sm font-semibold text-[#0A2647]">Need help?</span>
                       </div>
-                      <h4 className="font-bold text-[#1F3A5F] mb-2">{right.title}</h4>
-                      <p className="text-gray-700 text-sm">{right.desc}</p>
+                      <a href="tel:+12093958481" className="text-sm text-[#2C5F2D] font-medium hover:underline">
+                        +1 (209) 395-8481
+                      </a>
                     </div>
-                  ))}
-                </div>
-                <div className="mt-6 p-4 bg-[#F2E9D8] rounded-xl">
-                  <p className="text-gray-700">
-                    <span className="font-bold text-[#B23A2F]">Note:</span> If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
-                  </p>
-                </div>
-              </div>
+                  </div>
+                </motion.aside>
+              )}
+            </AnimatePresence>
 
-              {/* Children's Privacy */}
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-[#1F3A5F] mb-6">Children's Information</h3>
-                <div className="bg-[#F2E9D8] p-6 rounded-xl">
-                  <p className="text-gray-700 leading-relaxed">
-                    Another part of our priority is adding protection for children while using the
-                    internet. We encourage parents and guardians to observe, participate in, and/or
-                    monitor and guide their online activity.
+            {/* Content Area */}
+            <div className="flex-1">
+              {/* Key Privacy Points */}
+              <motion.div 
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+              >
+                {privacyPoints.map((point, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    whileHover={{ y: -5 }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                    <div className="relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${point.gradient} rounded-xl flex items-center justify-center mb-4 shadow-md`}>
+                        <div className="text-white">{point.icon}</div>
+                      </div>
+                      <p className="text-gray-700 font-medium leading-relaxed">{point.text}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Main Policy Content */}
+              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-10 border border-gray-100">
+                {/* Consent Section */}
+                <motion.section 
+                  id="overview"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10 scroll-mt-24"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0A2647]">Consent</h2>
+                      <p className="text-gray-600 mt-1">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+                    </div>
+                  </div>
+                  <div className="text-gray-700 leading-relaxed space-y-4">
+                    <p>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+                    <p>At Ameri Freight Autologistics LLC, California accessible from <a href="https://northstarautologistics.com" className="text-[#2C5F2D] font-medium hover:underline transition-colors">https://northstarautologistics.com</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Ameri Freight Autologistics LLC, California and how we use it.</p>
+                    <p>We emphasize <strong className="text-[#0A2647]">not sharing/disclosing/selling/trading our customers' data to any third party.</strong></p>
+                  </div>
+                </motion.section>
+
+                {/* Information Collection */}
+                <motion.section 
+                  id="information"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10 scroll-mt-24"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Database className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0A2647]">Information We Collect</h2>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
                   </p>
-                  <div className="mt-4 p-4 bg-white rounded-lg">
-                    <p className="text-gray-700 font-medium">
+                  <div className="bg-gradient-to-br from-[#F9F6F0] to-white p-6 rounded-xl border border-[#0A2647]/10">
+                    <h4 className="font-bold text-[#0A2647] mb-4">When you contact us directly, we may receive:</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {['Name', 'Email address', 'Phone number', 'Message contents', 'Attachments', 'Company name'].map((item) => (
+                        <motion.div key={item} whileHover={{ x: 3 }} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full" />
+                          <span className="text-gray-700 text-sm">{item}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.section>
+
+                {/* How We Use Information */}
+                <motion.section 
+                  id="usage"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10 scroll-mt-24"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Eye className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0A2647]">How We Use Your Information</h2>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                      "Provide, operate, and maintain our website",
+                      "Improve, personalize, and expand our website",
+                      "Understand and analyze how you use our website",
+                      "Develop new products, services, features, and functionality",
+                      "Communicate with you for customer service and updates",
+                      "Find and prevent fraud"
+                    ].map((use, index) => (
+                      <motion.div key={index} whileHover={{ x: 3 }} className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#F9F6F0] transition-colors">
+                        <CheckCircle className="w-5 h-5 text-[#2C5F2D] flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm">{use}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.section>
+
+                {/* Log Files */}
+                <motion.section 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10"
+                >
+                  <h3 className="text-2xl font-bold text-[#0A2647] mb-4">Log Files</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Ameri Freight Autologistics LLC, California follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
+                  </p>
+                </motion.section>
+
+                {/* Your Rights */}
+                <motion.section 
+                  id="rights"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10 scroll-mt-24"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <FileText className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0A2647]">GDPR Data Protection Rights</h2>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {rights.map((right, index) => (
+                      <motion.div
+                        key={index}
+                        whileHover={{ y: -3 }}
+                        className="bg-gradient-to-br from-[#F9F6F0] to-white p-5 rounded-xl border border-[#0A2647]/10 hover:shadow-md transition-all duration-300"
+                      >
+                        <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-lg flex items-center justify-center mb-3">
+                          <div className="text-white">{right.icon}</div>
+                        </div>
+                        <h4 className="font-bold text-[#0A2647] mb-2">{right.title}</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{right.desc}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.section>
+
+                {/* Children's Privacy */}
+                <motion.section 
+                  id="children"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-10 scroll-mt-24"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Lock className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0A2647]">Children's Information</h2>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-[#F9F6F0] to-white p-6 rounded-xl border border-[#0A2647]/10">
+                    <p className="text-gray-700 leading-relaxed">
                       Northstar Autologistics does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
                     </p>
                   </div>
+                </motion.section>
+
+                {/* Disclaimer */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-[#0A2647] to-[#1B3A5F] p-6 md:p-8 rounded-2xl text-white mt-6"
+                >
+                  <h4 className="font-bold text-xl mb-4 text-[#E8A87C]">Disclaimer</h4>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    All pictures of equipment are meant for general reference and do not imply automatic use of that equipment. We operate as a brokerage working with a vetted group of contracted drivers. SMS consent is only for our business and not for any other purpose.
+                  </p>
+                </motion.div>
+
+                {/* Terms Link */}
+                <div className="mt-8 text-center">
+                  <a href="/termsAndConditions" className="inline-flex items-center gap-2 text-[#2C5F2D] font-semibold hover:gap-3 transition-all duration-300">
+                    View Our Terms & Conditions
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
-                     <div className="mb-10 bg-[#F2E9D8] p-6 rounded-xl border border-[#B23A2F]/20">
-                <h4 className="font-bold text-[#1F3A5F] mb-3">Get a Free Estimate</h4>
-
-               
-                <p className="text-gray-700 text-sm leading-relaxed">
-                 +1 (209)395-8481
-                </p>
-              </div>
-              
-                        {/* Disclaimer */}
-              <div className="bg-[#F2E9D8] p-6 rounded-xl border border-[#B23A2F]/20">
-                <h4 className="font-bold text-[#1F3A5F] mb-3">Northstar Autologstics LLC,California</h4>
-
-                <h4 className="font-bold text-[#1F3A5F] mb-3">Disclaimer</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  All pictures of equipment are meant for general reference and do not imply automatic
-                  use of that equipment. We operate as a brokerage working with a vetted group of
-                  contracted drivers. If you would like to view pictures of the equipment being used
-                  for your specific transport, please be sure to request those from your Northstar Autologistics,LLC California
-                  representative. SMS consent is only for our business and not for any
-                  other purpose.
-                </p>
-              </div>
-
-   
             </div>
-
-          
           </div>
         </div>
       </div>
-
-
-
-    </div>
-       <Footer/>
+      <Footer />
     </>
   );
 }

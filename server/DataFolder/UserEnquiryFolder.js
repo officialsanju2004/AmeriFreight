@@ -10,14 +10,14 @@ let enquiryInsert = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user:process.env.Email_USER,
+        pass:process.env.Email_PASS,
       },
     });
 
     const mailOptions = {
       from: email,
-      to: process.env.EMAIL_USER,
+      to: process.env.Email_USER,
       subject: "New Contact Form Submission",
       html: `
         <h3>New Message</h3>
