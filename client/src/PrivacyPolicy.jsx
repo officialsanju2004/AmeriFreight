@@ -42,9 +42,9 @@ export default function PrivacyPolicy() {
   ];
 
   const privacyPoints = [
-    { icon: <Shield className="w-6 h-6" />, text: "No mobile information shared with third parties for marketing", gradient: "from-[#0A2647] to-[#2C5F2D]" },
-    { icon: <Lock className="w-6 h-6" />, text: "We don't ask for personal information unless truly needed", gradient: "from-[#2C5F2D] to-[#E8A87C]" },
-    { icon: <Database className="w-6 h-6" />, text: "We don't store personal information unnecessarily", gradient: "from-[#0A2647] to-[#E8A87C]" },
+    { icon: <Shield className="w-6 h-6" />, text: "No mobile information shared with third parties for marketing", color: "#003366" },
+    { icon: <Lock className="w-6 h-6" />, text: "We don't ask for personal information unless truly needed", color: "#FF8C00" },
+    { icon: <Database className="w-6 h-6" />, text: "We don't store personal information unnecessarily", color: "#003366" },
   ];
 
   const rights = [
@@ -68,18 +68,18 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-white via-[#F9F6F0] to-white">
+      <div className="min-h-screen bg-[#F9F6F0]">
         {/* Animated Background */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
         </div>
 
         {/* Hero Header */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="relative bg-gradient-to-r from-[#0A2647] via-[#0A2647] to-[#2C5F2D] text-white overflow-hidden"
+          className="relative bg-[#003366] text-white overflow-hidden"
         >
           {/* Decorative Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-2xl mb-8 shadow-xl"
+                className="inline-flex items-center justify-center w-20 h-20 bg-[#FF8C00] rounded-2xl mb-8 shadow-xl"
               >
                 <Shield className="w-10 h-10 text-white" />
               </motion.div>
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#E8A87C] bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
               >
                 Privacy Policy
               </motion.h1>
@@ -125,7 +125,7 @@ export default function PrivacyPolicy() {
           </div>
           
           {/* Curved bottom edge */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F9F6F0] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#F9F6F0]" />
         </motion.div>
 
         {/* Main Content */}
@@ -137,7 +137,7 @@ export default function PrivacyPolicy() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="flex items-center justify-between w-full text-left"
               >
-                <span className="font-semibold text-[#0A2647]">Navigation Menu</span>
+                <span className="font-semibold text-[#003366]">Navigation Menu</span>
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
                 >
                   <div className="sticky top-24 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
                     <div className="mb-4 pb-4 border-b border-gray-100">
-                      <h3 className="font-bold text-[#0A2647]">On this page</h3>
+                      <h3 className="font-bold text-[#003366]">On this page</h3>
                     </div>
                     <nav className="space-y-1">
                       {sections.map((section) => (
@@ -162,11 +162,11 @@ export default function PrivacyPolicy() {
                           onClick={() => scrollToSection(section.id)}
                           className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-3 group ${
                             activeSection === section.id
-                              ? 'bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white shadow-md'
-                              : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#0A2647]'
+                              ? 'bg-[#FF8C00] text-white shadow-md'
+                              : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#003366]'
                           }`}
                         >
-                          <span className={activeSection === section.id ? 'text-white' : 'text-[#2C5F2D] group-hover:text-[#0A2647]'}>
+                          <span className={activeSection === section.id ? 'text-white' : 'text-[#FF8C00] group-hover:text-[#003366]'}>
                             {section.icon}
                           </span>
                           <span className="text-sm font-medium">{section.title}</span>
@@ -178,14 +178,14 @@ export default function PrivacyPolicy() {
                     </nav>
                     
                     {/* Contact Card */}
-                    <div className="mt-6 p-4 bg-gradient-to-br from-[#F9F6F0] to-white rounded-xl border border-[#0A2647]/10">
+                    <div className="mt-6 p-4 bg-[#F9F6F0] rounded-xl border border-[#003366]/10">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center">
                           <Phone className="w-4 h-4 text-white" />
                         </div>
-                        <span className="text-sm font-semibold text-[#0A2647]">Need help?</span>
+                        <span className="text-sm font-semibold text-[#003366]">Need help?</span>
                       </div>
-                      <a href="tel:+12093958481" className="text-sm text-[#2C5F2D] font-medium hover:underline">
+                      <a href="tel:+12093958481" className="text-sm text-[#FF8C00] font-medium hover:underline">
                         +1 (209) 395-8481
                       </a>
                     </div>
@@ -211,9 +211,9 @@ export default function PrivacyPolicy() {
                     whileHover={{ y: -5 }}
                     className="relative group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-[#FF8C00] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                     <div className="relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${point.gradient} rounded-xl flex items-center justify-center mb-4 shadow-md`}>
+                      <div className={`w-12 h-12 bg-[${point.color}] rounded-xl flex items-center justify-center mb-4 shadow-md`}>
                         <div className="text-white">{point.icon}</div>
                       </div>
                       <p className="text-gray-700 font-medium leading-relaxed">{point.text}</p>
@@ -233,18 +233,18 @@ export default function PrivacyPolicy() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">Consent</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">Consent</h2>
                       <p className="text-gray-600 mt-1">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
                     </div>
                   </div>
                   <div className="text-gray-700 leading-relaxed space-y-4">
                     <p>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
-                    <p>At Ameri Freight Autologistics LLC, California accessible from <a href="https://northstarautologistics.com" className="text-[#2C5F2D] font-medium hover:underline transition-colors">https://northstarautologistics.com</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Ameri Freight Autologistics LLC, California and how we use it.</p>
-                    <p>We emphasize <strong className="text-[#0A2647]">not sharing/disclosing/selling/trading our customers' data to any third party.</strong></p>
+                    <p>At Ameri Freight Autologistics LLC, California accessible from <a href="https://northstarautologistics.com" className="text-[#FF8C00] font-medium hover:underline transition-colors">https://northstarautologistics.com</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Ameri Freight Autologistics LLC, California and how we use it.</p>
+                    <p>We emphasize <strong className="text-[#003366]">not sharing/disclosing/selling/trading our customers' data to any third party.</strong></p>
                   </div>
                 </motion.section>
 
@@ -257,22 +257,22 @@ export default function PrivacyPolicy() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Database className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">Information We Collect</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">Information We Collect</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 mb-6 leading-relaxed">
                     The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
                   </p>
-                  <div className="bg-gradient-to-br from-[#F9F6F0] to-white p-6 rounded-xl border border-[#0A2647]/10">
-                    <h4 className="font-bold text-[#0A2647] mb-4">When you contact us directly, we may receive:</h4>
+                  <div className="bg-[#F9F6F0] p-6 rounded-xl border border-[#003366]/10">
+                    <h4 className="font-bold text-[#003366] mb-4">When you contact us directly, we may receive:</h4>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {['Name', 'Email address', 'Phone number', 'Message contents', 'Attachments', 'Company name'].map((item) => (
                         <motion.div key={item} whileHover={{ x: 3 }} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full" />
+                          <div className="w-1.5 h-1.5 bg-[#FF8C00] rounded-full" />
                           <span className="text-gray-700 text-sm">{item}</span>
                         </motion.div>
                       ))}
@@ -289,11 +289,11 @@ export default function PrivacyPolicy() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Eye className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">How We Use Your Information</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">How We Use Your Information</h2>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -306,7 +306,7 @@ export default function PrivacyPolicy() {
                       "Find and prevent fraud"
                     ].map((use, index) => (
                       <motion.div key={index} whileHover={{ x: 3 }} className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#F9F6F0] transition-colors">
-                        <CheckCircle className="w-5 h-5 text-[#2C5F2D] flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{use}</span>
                       </motion.div>
                     ))}
@@ -320,7 +320,7 @@ export default function PrivacyPolicy() {
                   viewport={{ once: true }}
                   className="mb-10"
                 >
-                  <h3 className="text-2xl font-bold text-[#0A2647] mb-4">Log Files</h3>
+                  <h3 className="text-2xl font-bold text-[#003366] mb-4">Log Files</h3>
                   <p className="text-gray-700 leading-relaxed">
                     Ameri Freight Autologistics LLC, California follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
                   </p>
@@ -335,11 +335,11 @@ export default function PrivacyPolicy() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <FileText className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">GDPR Data Protection Rights</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">GDPR Data Protection Rights</h2>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -347,12 +347,12 @@ export default function PrivacyPolicy() {
                       <motion.div
                         key={index}
                         whileHover={{ y: -3 }}
-                        className="bg-gradient-to-br from-[#F9F6F0] to-white p-5 rounded-xl border border-[#0A2647]/10 hover:shadow-md transition-all duration-300"
+                        className="bg-[#F9F6F0] p-5 rounded-xl border border-[#003366]/10 hover:shadow-md transition-all duration-300"
                       >
-                        <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-lg flex items-center justify-center mb-3">
+                        <div className="w-10 h-10 bg-[#FF8C00] rounded-lg flex items-center justify-center mb-3">
                           <div className="text-white">{right.icon}</div>
                         </div>
-                        <h4 className="font-bold text-[#0A2647] mb-2">{right.title}</h4>
+                        <h4 className="font-bold text-[#003366] mb-2">{right.title}</h4>
                         <p className="text-gray-600 text-sm leading-relaxed">{right.desc}</p>
                       </motion.div>
                     ))}
@@ -368,14 +368,14 @@ export default function PrivacyPolicy() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Lock className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">Children's Information</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">Children's Information</h2>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-[#F9F6F0] to-white p-6 rounded-xl border border-[#0A2647]/10">
+                  <div className="bg-[#F9F6F0] p-6 rounded-xl border border-[#003366]/10">
                     <p className="text-gray-700 leading-relaxed">
                       Northstar Autologistics does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
                     </p>
@@ -387,9 +387,9 @@ export default function PrivacyPolicy() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-br from-[#0A2647] to-[#1B3A5F] p-6 md:p-8 rounded-2xl text-white mt-6"
+                  className="bg-[#003366] p-6 md:p-8 rounded-2xl text-white mt-6"
                 >
-                  <h4 className="font-bold text-xl mb-4 text-[#E8A87C]">Disclaimer</h4>
+                  <h4 className="font-bold text-xl mb-4 text-[#FF8C00]">Disclaimer</h4>
                   <p className="text-white/80 text-sm leading-relaxed">
                     All pictures of equipment are meant for general reference and do not imply automatic use of that equipment. We operate as a brokerage working with a vetted group of contracted drivers. SMS consent is only for our business and not for any other purpose.
                   </p>
@@ -397,7 +397,7 @@ export default function PrivacyPolicy() {
 
                 {/* Terms Link */}
                 <div className="mt-8 text-center">
-                  <a href="/termsAndConditions" className="inline-flex items-center gap-2 text-[#2C5F2D] font-semibold hover:gap-3 transition-all duration-300">
+                  <a href="/termsAndConditions" className="inline-flex items-center gap-2 text-[#FF8C00] font-semibold hover:gap-3 transition-all duration-300">
                     View Our Terms & Conditions
                     <ChevronRight className="w-4 h-4" />
                   </a>

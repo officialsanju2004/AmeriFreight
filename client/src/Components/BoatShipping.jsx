@@ -67,9 +67,9 @@ export default function BoatShipping() {
           />
         </AnimatePresence>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647]/80 via-[#0A2647]/60 to-[#2C5F2D]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A2647]/60 to-transparent" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#003366]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/60 to-transparent" />
 
         {/* Animated Wave Pattern */}
         <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden pointer-events-none">
@@ -91,18 +91,18 @@ export default function BoatShipping() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6"
             >
-              <Anchor className="w-4 h-4 text-[#E8A87C]" />
+              <Anchor className="w-4 h-4 text-[#FF8C00]" />
               <span className="text-sm font-medium text-white/90">Marine Transport Specialists</span>
             </motion.div>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
               Boat 
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-[#2C5F2D]">Shipping</span>
+              <span className="block text-[#FF8C00]">Shipping</span>
             </h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: 80 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] mx-auto rounded-full mt-4"
+              className="h-1 bg-[#FF8C00] mx-auto rounded-full mt-4"
             />
           </motion.div>
         </div>
@@ -114,7 +114,7 @@ export default function BoatShipping() {
               key={idx}
               onClick={() => setCurrent(idx)}
               className={`transition-all duration-300 rounded-full ${
-                idx === current ? "w-8 h-2 bg-[#E8A87C]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                idx === current ? "w-8 h-2 bg-[#FF8C00]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
@@ -122,12 +122,12 @@ export default function BoatShipping() {
       </div>
 
       {/* Main Content Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#F9F6F0] to-white py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#F9F6F0] py-16 md:py-24">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/4 right-1/4 w-40 h-40 border border-[#2C5F2D]/5 rounded-full" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-1/4 w-40 h-40 border border-[#FF8C00]/5 rounded-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -141,7 +141,7 @@ export default function BoatShipping() {
               className="relative order-2 lg:order-1"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2647]/30 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/30 to-transparent z-10" />
                 <img
                   src={image11}
                   className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
@@ -149,7 +149,7 @@ export default function BoatShipping() {
                 />
                 <div className="absolute bottom-6 left-6 right-6 z-20">
                   <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-xl p-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center">
                       <Ship className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -170,12 +170,12 @@ export default function BoatShipping() {
               className="order-1 lg:order-2"
             >
               <div className="mb-6">
-                <span className="text-sm font-semibold text-[#2C5F2D] tracking-wider uppercase">Premium Boat Transport</span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2647] mt-2 leading-tight">
+                <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Premium Boat Transport</span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mt-2 leading-tight">
                   Boat 
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]"> Shipping</span>
+                  <span className="text-[#FF8C00]"> Shipping</span>
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full mt-4" />
+                <div className="w-20 h-1 bg-[#FF8C00] rounded-full mt-4" />
               </div>
 
               <motion.ul
@@ -191,7 +191,7 @@ export default function BoatShipping() {
                     variants={fadeUp}
                     className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
                       <div className="text-white w-4 h-4">{feature.icon}</div>
                     </div>
                     <span className="text-gray-700 font-medium leading-relaxed">{feature.text}</span>
@@ -209,7 +209,7 @@ export default function BoatShipping() {
               >
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
+                    <div key={i} className="w-8 h-8 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
                       ⚓
                     </div>
                   ))}
@@ -217,7 +217,7 @@ export default function BoatShipping() {
                 <div>
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 text-[#E8A87C] fill-[#E8A87C]" />
+                      <Star key={star} className="w-4 h-4 text-[#FF8C00] fill-[#FF8C00]" />
                     ))}
                   </div>
                   <p className="text-gray-500 text-xs">Trusted by 3,000+ boat owners</p>
@@ -232,10 +232,10 @@ export default function BoatShipping() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="mt-16 md:mt-20 p-6 md:p-10 bg-gradient-to-br from-[#0A2647] to-[#1B3A5B] rounded-2xl shadow-xl"
+            className="mt-16 md:mt-20 p-6 md:p-10 bg-[#003366] rounded-2xl shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0">
                 <Quote className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -245,7 +245,7 @@ export default function BoatShipping() {
               </div>
             </div>
             <div className="space-y-4 text-white/80 leading-relaxed pl-4 md:pl-16">
-              <p>Moving and need your boat transported? We've got you covered. At Ameri Freight  Autologistics, we understand how stressful it can be to find a boat shipping company you can trust. That's why our mission is simple — to give you a smooth, secure, and stress-free transport experience.</p>
+              <p>Moving and need your boat transported? We've got you covered. At Ameri Freight Autologistics, we understand how stressful it can be to find a boat shipping company you can trust. That's why our mission is simple — to give you a smooth, secure, and stress-free transport experience.</p>
               <p>Unlike others, we truly care about your concerns. Our team is dedicated to ensuring your boat arrives safely and on time, and our client reviews speak for themselves.</p>
               <p className="font-semibold text-white pt-2">With a well-equipped fleet and experienced crew, we can haul your boat anywhere across the country — with complete care and confidence.</p>
             </div>
@@ -261,7 +261,7 @@ export default function BoatShipping() {
           >
             <a
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg hover:bg-[#003366] transform hover:scale-105 transition-all duration-300"
             >
               Get Your Free Boat Shipping Quote
               <Ship className="w-5 h-5" />
@@ -277,15 +277,15 @@ export default function BoatShipping() {
             className="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-gray-200"
           >
             <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-[#2C5F2D]" />
+              <Shield className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">Fully Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-[#2C5F2D]" />
+              <Clock className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">On-Time Delivery Guaranteed</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5 text-[#2C5F2D]" />
+              <Phone className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">24/7 Customer Support</span>
             </div>
           </motion.div>

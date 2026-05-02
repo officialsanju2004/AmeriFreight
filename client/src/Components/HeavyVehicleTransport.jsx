@@ -67,8 +67,8 @@ export default function HeavyVehicleTransport() {
           />
         </AnimatePresence>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647]/85 via-[#0A2647]/70 to-[#2C5F2D]/50" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#003366]/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
 
         {/* Content */}
@@ -84,19 +84,19 @@ export default function HeavyVehicleTransport() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6"
             >
-              <Box className="w-4 h-4 text-[#E8A87C]" />
+              <Box className="w-4 h-4 text-[#FF8C00]" />
               <span className="text-sm font-medium text-white/90">Heavy-Duty Specialists</span>
             </motion.div>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
               Heavy Vehicle
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-[#2C5F2D]">Transport</span>
+              <span className="block text-[#FF8C00]">Transport</span>
             </h1>
             <p className="text-white/80 text-lg max-w-2xl mx-auto">Expert solutions for trucks, machinery, and commercial vehicles</p>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: 80 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] mx-auto rounded-full mt-6"
+              className="h-1 bg-[#FF8C00] mx-auto rounded-full mt-6"
             />
           </motion.div>
         </div>
@@ -108,7 +108,7 @@ export default function HeavyVehicleTransport() {
               key={idx}
               onClick={() => setCurrent(idx)}
               className={`transition-all duration-300 rounded-full ${
-                idx === current ? "w-8 h-2 bg-[#E8A87C]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                idx === current ? "w-8 h-2 bg-[#FF8C00]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
@@ -116,11 +116,11 @@ export default function HeavyVehicleTransport() {
       </div>
 
       {/* Main Content Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#F9F6F0] to-white py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#F9F6F0] py-16 md:py-24">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -133,12 +133,12 @@ export default function HeavyVehicleTransport() {
               variants={fadeLeft}
             >
               <div className="mb-6">
-                <span className="text-sm font-semibold text-[#2C5F2D] tracking-wider uppercase">Heavy-Duty Service</span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2647] mt-2 leading-tight">
+                <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Heavy-Duty Service</span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mt-2 leading-tight">
                   Heavy Vehicle
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]"> Transport</span>
+                  <span className="text-[#FF8C00]"> Transport</span>
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full mt-4" />
+                <div className="w-20 h-1 bg-[#FF8C00] rounded-full mt-4" />
               </div>
 
               <motion.ul
@@ -154,7 +154,7 @@ export default function HeavyVehicleTransport() {
                     variants={fadeUp}
                     className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
                       <div className="text-white w-4 h-4">{feature.icon}</div>
                     </div>
                     <span className="text-gray-700 font-medium leading-relaxed">{feature.text}</span>
@@ -172,7 +172,7 @@ export default function HeavyVehicleTransport() {
               >
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
+                    <div key={i} className="w-8 h-8 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
                       ★
                     </div>
                   ))}
@@ -180,7 +180,7 @@ export default function HeavyVehicleTransport() {
                 <div>
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 text-[#E8A87C] fill-[#E8A87C]" />
+                      <Star key={star} className="w-4 h-4 text-[#FF8C00] fill-[#FF8C00]" />
                     ))}
                   </div>
                   <p className="text-gray-500 text-xs">Trusted by 500+ commercial fleets</p>
@@ -197,7 +197,7 @@ export default function HeavyVehicleTransport() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2647]/30 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/30 to-transparent z-10" />
                 <img
                   src={heavy}
                   className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
@@ -205,7 +205,7 @@ export default function HeavyVehicleTransport() {
                 />
                 <div className="absolute bottom-6 left-6 right-6 z-20">
                   <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-xl p-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center">
                       <Wrench className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -224,10 +224,10 @@ export default function HeavyVehicleTransport() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="mt-16 md:mt-20 p-6 md:p-10 bg-gradient-to-br from-[#0A2647] to-[#1B3A5B] rounded-2xl shadow-xl"
+            className="mt-16 md:mt-20 p-6 md:p-10 bg-[#003366] rounded-2xl shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0">
                 <Truck className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -253,7 +253,7 @@ export default function HeavyVehicleTransport() {
           >
             <a
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg hover:bg-[#003366] transform hover:scale-105 transition-all duration-300"
             >
               Get Your Heavy Vehicle Quote
               <Box className="w-5 h-5" />
@@ -269,15 +269,15 @@ export default function HeavyVehicleTransport() {
             className="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-gray-200"
           >
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#2C5F2D]" />
+              <ShieldCheck className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">Fully Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-[#2C5F2D]" />
+              <Clock className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">On-Time Delivery Guaranteed</span>
             </div>
             <div className="flex items-center gap-2">
-              <HardHat className="w-5 h-5 text-[#2C5F2D]" />
+              <HardHat className="w-5 h-5 text-[#FF8C00]" />
               <span className="text-sm text-gray-600">Experienced Heavy Load Handlers</span>
             </div>
           </motion.div>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaPhone, FaEnvelope, FaUser, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../Images/logo.png';
+import logo from '../Images/logo.jpeg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,7 +91,7 @@ const Navbar = () => {
           isScrolled 
             ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-100' 
             : isTransparent 
-              ? 'bg-gradient-to-b from-black/40 to-transparent backdrop-blur-sm' 
+              ? 'bg-black/40 backdrop-blur-sm' 
               : 'bg-white shadow-md'
         }`}
       >
@@ -105,18 +105,18 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className="relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#FF8C00] rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                 <img
                   src={logo}
-                  alt="Ameri Freight  Autologistics"
-                  className="relative object-cover h-10 w-10 sm:h-12 sm:w-12 rounded-full ring-2 ring-white/20 group-hover:ring-[#E8A87C]/50 transition-all duration-300"
+                  alt="Ameri Freight Autologistics"
+                  className="relative object-cover h-10 w-10 sm:h-12 sm:w-12 rounded-full ring-2 ring-white/20 group-hover:ring-[#FF8C00]/50 transition-all duration-300"
                 />
               </motion.div>
               <div>
                 <span className={`block text-base sm:text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${
-                  isScrolled || !isTransparent ? 'text-[#0A2647]' : 'text-white'
-                } group-hover:text-[#E8A87C] transition-colors`}>
-                  Ameri Freight  Autologistics
+                  isScrolled || !isTransparent ? 'text-[#003366]' : 'text-white'
+                } group-hover:text-[#FF8C00] transition-colors`}>
+                  Ameri Freight Autologistics
                 </span>
                 <span className={`block text-xs sm:text-sm font-medium transition-colors duration-300 ${
                   isScrolled || !isTransparent ? 'text-gray-500' : 'text-white/80'
@@ -132,15 +132,15 @@ const Navbar = () => {
                 to="/"
                 className={`relative px-4 py-2 font-medium transition-all duration-300 rounded-lg group ${
                   location.pathname === "/"
-                    ? 'text-[#2C5F2D]'
-                    : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#2C5F2D]' : 'text-white/90 hover:text-white'
+                    ? 'text-[#FF8C00]'
+                    : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#FF8C00]' : 'text-white/90 hover:text-white'
                 }`}
               >
                 Home
                 {location.pathname === "/" && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full"
+                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#FF8C00] rounded-full"
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
@@ -154,8 +154,8 @@ const Navbar = () => {
                   onMouseLeave={() => setIsServicesOpen(false)}
                   className={`flex items-center px-4 py-2 font-medium transition-all duration-300 rounded-lg group ${
                     serviceItems.some(item => location.pathname === item.path)
-                      ? 'text-[#2C5F2D]'
-                      : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#2C5F2D]' : 'text-white/90 hover:text-white'
+                      ? 'text-[#FF8C00]'
+                      : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#FF8C00]' : 'text-white/90 hover:text-white'
                   }`}
                 >
                   <span>Services</span>
@@ -186,11 +186,11 @@ const Navbar = () => {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: idx * 0.03 }}
                           onClick={() => handleServiceSelect(service.path)}
-                          className="block w-full text-left px-5 py-3 hover:bg-gradient-to-r hover:from-[#F9F6F0] hover:to-white transition-all duration-300 text-gray-700 font-medium text-sm group"
+                          className="block w-full text-left px-5 py-3 hover:bg-[#F9F6F0] transition-all duration-300 text-gray-700 font-medium text-sm group"
                         >
                           <span className="relative inline-block">
                             {service.name}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] group-hover:w-full transition-all duration-300" />
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF8C00] group-hover:w-full transition-all duration-300" />
                           </span>
                         </motion.button>
                       ))}
@@ -205,15 +205,15 @@ const Navbar = () => {
                   to={item.path}
                   className={`relative px-4 py-2 font-medium transition-all duration-300 rounded-lg group ${
                     location.pathname === item.path
-                      ? 'text-[#2C5F2D]'
-                      : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#2C5F2D]' : 'text-white/90 hover:text-white'
+                      ? 'text-[#FF8C00]'
+                      : isScrolled || !isTransparent ? 'text-gray-700 hover:text-[#FF8C00]' : 'text-white/90 hover:text-white'
                   }`}
                 >
                   {item.name}
                   {location.pathname === item.path && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] rounded-full"
+                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#FF8C00] rounded-full"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -229,8 +229,8 @@ const Navbar = () => {
                   to="/contact"
                   className={`ml-4 px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl ${
                     isScrolled || !isTransparent
-                      ? 'bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white hover:from-[#2C5F2D] hover:to-[#0A2647]'
-                      : 'bg-white text-[#0A2647] hover:bg-gray-50'
+                      ? 'bg-[#FF8C00] text-white hover:bg-[#003366]'
+                      : 'bg-white text-[#FF8C00] hover:bg-gray-50'
                   }`}
                 >
                   Get A Quote
@@ -245,9 +245,9 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <FaTimes className={`text-xl transition-colors duration-300 ${isScrolled || !isTransparent ? 'text-[#0A2647]' : 'text-white'}`} />
+                <FaTimes className={`text-xl transition-colors duration-300 ${isScrolled || !isTransparent ? 'text-[#003366]' : 'text-white'}`} />
               ) : (
-                <FaBars className={`text-xl transition-colors duration-300 ${isScrolled || !isTransparent ? 'text-[#0A2647]' : 'text-white'}`} />
+                <FaBars className={`text-xl transition-colors duration-300 ${isScrolled || !isTransparent ? 'text-[#003366]' : 'text-white'}`} />
               )}
             </motion.button>
           </div>
@@ -281,7 +281,7 @@ const Navbar = () => {
                     to="/"
                     className={`block py-3 px-4 rounded-xl font-medium transition-all duration-300 ${
                       location.pathname === "/"
-                        ? 'bg-gradient-to-r from-[#F9F6F0] to-white text-[#2C5F2D] border-l-4 border-[#2C5F2D]'
+                        ? 'bg-[#F9F6F0] text-[#003366] border-l-4 border-[#FF8C00]'
                         : 'text-gray-700 hover:bg-gray-50'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -295,7 +295,7 @@ const Navbar = () => {
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                       className={`flex items-center justify-between w-full py-3 px-4 rounded-xl font-medium transition-all duration-300 ${
                         serviceItems.some(item => location.pathname === item.path)
-                          ? 'text-[#2C5F2D]'
+                          ? 'text-[#FF8C00]'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
@@ -316,7 +316,7 @@ const Navbar = () => {
                           exit={{ opacity: 0, height: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="pl-3 mt-1 space-y-1 border-l-2 border-[#E8A87C]/30 ml-4">
+                          <div className="pl-3 mt-1 space-y-1 border-l-2 border-[#FF8C00]/30 ml-4">
                             {serviceItems.map((service, idx) => (
                               <motion.button
                                 key={service.name}
@@ -341,7 +341,7 @@ const Navbar = () => {
                       to={item.path}
                       className={`block py-3 px-4 rounded-xl font-medium transition-all duration-300 ${
                         location.pathname === item.path
-                          ? 'bg-gradient-to-r from-[#F9F6F0] to-white text-[#2C5F2D] border-l-4 border-[#2C5F2D]'
+                          ? 'bg-[#F9F6F0] text-[#003366] border-l-4 border-[#FF8C00]'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
@@ -354,7 +354,7 @@ const Navbar = () => {
                   <div className="pt-4 mt-2 border-t border-gray-100 space-y-4">
                     <Link
                       to="/contact"
-                      className="block bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white px-6 py-3 rounded-xl font-semibold text-center hover:shadow-lg transition-all duration-300"
+                      className="block bg-[#003366] text-white px-6 py-3 rounded-xl font-semibold text-center hover:bg-[#FF8C00] transition-all duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Get A Quote
@@ -362,21 +362,21 @@ const Navbar = () => {
                     <div className="flex flex-col space-y-3 px-2">
                       <a
                         href="tel:+12093958481"
-                        className="flex items-center space-x-3 text-gray-600 hover:text-[#2C5F2D] transition-colors py-2"
+                        className="flex items-center space-x-3 text-gray-600 hover:text-[#FF8C00] transition-colors py-2"
                       >
                         <div className="w-8 h-8 bg-[#F9F6F0] rounded-full flex items-center justify-center">
-                          <FaPhone className="w-3.5 h-3.5 text-[#2C5F2D]" />
+                          <FaPhone className="w-3.5 h-3.5 text-[#FF8C00]" />
                         </div>
                         <span className="text-sm">+1 (209) 395-8481</span>
                       </a>
                       <a
-                        href="mailto:Info@Ameri Freight autologistics.com"
-                        className="flex items-center space-x-3 text-gray-600 hover:text-[#2C5F2D] transition-colors py-2"
+                        href="mailto:Info@AmeriFreightautologistics.com"
+                        className="flex items-center space-x-3 text-gray-600 hover:text-[#FF8C00] transition-colors py-2"
                       >
                         <div className="w-8 h-8 bg-[#F9F6F0] rounded-full flex items-center justify-center">
-                          <FaEnvelope className="w-3.5 h-3.5 text-[#2C5F2D]" />
+                          <FaEnvelope className="w-3.5 h-3.5 text-[#FF8C00]" />
                         </div>
-                        <span className="text-sm break-all">Info@Ameri Freight autologistics.com</span>
+                        <span className="text-sm break-all">Info@AmeriFreightautologistics.com</span>
                       </a>
                     </div>
                   </div>

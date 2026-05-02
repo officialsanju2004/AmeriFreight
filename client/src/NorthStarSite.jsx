@@ -28,13 +28,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Modern Professional Color Palette
 const colors = {
-  primary: '#0A2647',      // Deep Navy
-  secondary: '#2C5F2D',    // Forest Green
-  accent: '#E8A87C',       // Warm Sand
+  primary: '#003366',      // Navy Blue
+  secondary: '#FF8C00',    // Orange
+  accent: '#FFB347',       // Light Orange
   light: '#F9F6F0',        // Cream White
   dark: '#1B2A3B',         // Dark Slate
-  gradientStart: '#0A2647',
-  gradientEnd: '#2C5F2D',
+  gradientStart: '#003366',
+  gradientEnd: '#FF8C00',
   highlight: '#E27D60',
   textLight: '#F9F6F0',
   textDark: '#1B2A3B',
@@ -89,7 +89,7 @@ export default function AutoTransportWebsite() {
       toast.error("Incorrect email!!");
       return;
     }
-    axios.post("https://northstar-autologistics123.vercel.app/web/api/enquiry/enquiry-insert", formData)
+    axios.post("https://ameri-freight.vercel.app/web/api/enquiry/enquiry-insert", formData)
       .then((res) => {
         toast.success("Message Sent!!!");
         setFormData({ name: '', email: '', subject: '', pickup: '', dropoff: '', message: '' });
@@ -146,7 +146,7 @@ export default function AutoTransportWebsite() {
     }, [end, duration]);
     return (
       <div className="text-center" ref={countRef}>
-        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] bg-clip-text text-transparent mb-2">{count.toLocaleString()}+</div>
+        <div className="text-5xl md:text-6xl font-bold text-[#003366] mb-2">{count.toLocaleString()}+</div>
         <div className="text-lg text-gray-600 font-medium">{label}</div>
       </div>
     );
@@ -168,7 +168,7 @@ export default function AutoTransportWebsite() {
         .hover-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25); }
         .glass-effect { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); }
         .gradient-border { position: relative; background: white; border-radius: 1rem; }
-        .gradient-border::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(135deg, #0A2647, #2C5F2D, #E8A87C); border-radius: 1rem; z-index: -1; opacity: 0; transition: opacity 0.4s; }
+        .gradient-border::before { content: ''; position: absolute; inset: -2px; background: #FF8C00; border-radius: 1rem; z-index: -1; opacity: 0; transition: opacity 0.4s; }
         .gradient-border:hover::before { opacity: 1; }
       `}</style>
 
@@ -178,7 +178,7 @@ export default function AutoTransportWebsite() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={image1} alt="Luxury Auto Transport" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A2647]/85 via-[#0A2647]/70 to-[#2C5F2D]/60" />
+          <div className="absolute inset-0 bg-[#003366]/85" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
         </div>
 
@@ -186,17 +186,17 @@ export default function AutoTransportWebsite() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
               Reliable & Budget
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-[#E27D60] mt-2">Auto Transport</span>
+              <span className="block text-[#FF8C00] mt-2">Auto Transport</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mb-10 leading-relaxed">Nationwide vehicle shipping with premium care, transparent pricing, and on-time delivery guaranteed.</p>
-            <motion.button onClick={() => window.location.href = "/contact"} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="px-10 py-4 bg-gradient-to-r from-[#2C5F2D] to-[#0A2647] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300">
-              Get a Free Quote
+            <motion.button onClick={() => window.location.href = "/contact"} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="px-10 py-4 bg-[#FF8C00] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300">
+              Free Quote
             </motion.button>
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
             <div className="flex flex-col items-center gap-2">
-              <span className="text-white/70 text-sm tracking-wider">SCROLL TO EXPLORE</span>
+              
               <motion.div animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
                 <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2" />
               </motion.div>
@@ -211,21 +211,21 @@ export default function AutoTransportWebsite() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <div className="relative">
-                <div className="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-[#E8A87C]/20 to-[#2C5F2D]/20 rounded-full blur-3xl" />
-                <h2 className="text-5xl font-bold text-[#0A2647] mb-8 leading-tight">
-                  Car Transport isn't Just Our Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">—It's Our Passion.</span>
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#FF8C00]/20 rounded-full blur-3xl" />
+                <h2 className="text-5xl font-bold text-[#003366] mb-8 leading-tight">
+                  Car Transport isn't Just Our Business <span className="text-[#FF8C00]">—It's Our Passion.</span>
                 </h2>
                 <div className="space-y-6 text-gray-700">
-                  <p className="text-lg font-semibold text-[#0A2647]">At Ameri Freight Autologistics LLC, California, we pride ourselves on delivering top-tier auto transport services at some of the most competitive prices in the market.</p>
-                  <p className="text-lg leading-relaxed">Let's be real — the industry is flooded with brokers. So, what makes us different? Simple: <span className="font-bold text-[#2C5F2D]">we actually care.</span> We don't see you as just another number.</p>
-                  <p className="text-lg leading-relaxed">We work only with <span className="font-bold text-[#2C5F2D]">the most trusted and reliable carriers</span> to ensure your vehicle gets where it needs to go, safely and on time.</p>
+                  <p className="text-lg font-semibold text-[#003366]">At Ameri Freight Autologistics LLC, California, we pride ourselves on delivering top-tier auto transport services at some of the most competitive prices in the market.</p>
+                  <p className="text-lg leading-relaxed">Let's be real — the industry is flooded with brokers. So, what makes us different? Simple: <span className="font-bold text-[#FF8C00]">we actually care.</span> We don't see you as just another number.</p>
+                  <p className="text-lg leading-relaxed">We work only with <span className="font-bold text-[#FF8C00]">the most trusted and reliable carriers</span> to ensure your vehicle gets where it needs to go, safely and on time.</p>
                 </div>
-                <div className="mt-10 p-6 bg-gradient-to-r from-[#0A2647]/5 to-transparent rounded-2xl border-l-4 border-[#2C5F2D]">
+                <div className="mt-10 p-6 bg-[#003366]/5 rounded-2xl border-l-4 border-[#FF8C00]">
                   <div className="flex flex-wrap items-center gap-6">
-                    <Phone className="w-10 h-10 text-[#2C5F2D]" />
+                    <Phone className="w-10 h-10 text-[#FF8C00]" />
                     <div>
                       <p className="text-sm text-gray-500">24/7 Customer Support</p>
-                      <a href="tel:+12093958481" className="text-3xl font-bold text-[#0A2647] hover:text-[#2C5F2D] transition">+1 (209) 395-8481</a>
+                      <a href="tel:+12093958481" className="text-3xl font-bold text-[#003366] hover:text-[#FF8C00] transition">+1 (209) 395-8481</a>
                     </div>
                   </div>
                 </div>
@@ -233,22 +233,22 @@ export default function AutoTransportWebsite() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-3xl blur-2xl opacity-20" />
+              <div className="absolute inset-0 bg-[#003366] rounded-3xl blur-2xl opacity-20" />
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-10">
-                <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] bg-clip-text text-transparent">Request A Free Quote</h3>
+                <h3 className="text-3xl font-bold text-center mb-8 text-[#003366]">Request A Free Quote</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-5">
-                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label><input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="John Doe" required /></div>
-                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label><input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="john@example.com" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label><input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none" placeholder="John Doe" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label><input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none" placeholder="john@example.com" required /></div>
                   </div>
-                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label><input type="text" name="subject" value={formData.subject} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="Vehicle Transport Inquiry" required /></div>
+                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label><input type="text" name="subject" value={formData.subject} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none" placeholder="Vehicle Transport Inquiry" required /></div>
                   <div className="grid md:grid-cols-2 gap-5">
-                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location *</label><input type="text" name="pickup" value={formData.pickup} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="City, State" required /></div>
-                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Dropoff Location *</label><input type="text" name="dropoff" value={formData.dropoff} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none" placeholder="City, State" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Pickup Location *</label><input type="text" name="pickup" value={formData.pickup} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none" placeholder="City, State" required /></div>
+                    <div><label className="block text-sm font-semibold text-gray-700 mb-2">Dropoff Location *</label><input type="text" name="dropoff" value={formData.dropoff} onChange={handleChange} className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none" placeholder="City, State" required /></div>
                   </div>
-                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Additional Message</label><textarea name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#2C5F2D] focus:ring-4 focus:ring-[#2C5F2D]/20 transition-all outline-none resize-none" placeholder="Tell us about your vehicle..."></textarea></div>
-                  <div className="flex items-center gap-3"><input type="checkbox" id="policy" className="w-5 h-5 rounded border-gray-300 text-[#2C5F2D] focus:ring-[#2C5F2D]" required /><label htmlFor="policy" className="text-sm text-gray-600">By providing your details you agree to our <a href="/privacy-policy" className="text-[#2C5F2D] font-semibold hover:underline">Privacy Policy</a></label></div>
-                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full py-4 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all">Get Free Quote →</motion.button>
+                  <div><label className="block text-sm font-semibold text-gray-700 mb-2">Additional Message</label><textarea name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none resize-none" placeholder="Tell us about your vehicle..."></textarea></div>
+                  <div className="flex items-center gap-3"><input type="checkbox" id="policy" className="w-5 h-5 rounded border-gray-300 text-[#FF8C00] focus:ring-[#FF8C00]" required /><label htmlFor="policy" className="text-sm text-gray-600">By providing your details you agree to our <a href="/privacy-policy" className="text-[#FF8C00] font-semibold hover:underline">Privacy Policy</a></label></div>
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all">Get Free Quote →</motion.button>
                 </form>
               </div>
             </motion.div>
@@ -260,14 +260,14 @@ export default function AutoTransportWebsite() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#0A2647] mb-4">What Makes Us <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">Different</span></h2>
+            <h2 className="text-5xl font-bold text-[#003366] mb-4">What Makes Us <span className="text-[#FF8C00]">Different</span></h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We don't see you as just another number. We're committed to providing exceptional service.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, idx) => (
-              <motion.div key={idx} variants={fadeUp} whileHover={{ y: -10 }} className="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md"><div className="text-white">{feature.icon}</div></div>
-                <h3 className="text-2xl font-bold text-[#0A2647] mb-3">{feature.title}</h3>
+              <motion.div key={idx} variants={fadeUp} whileHover={{ y: -10 }} className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
+                <div className="w-16 h-16 bg-[#FF8C00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md"><div className="text-white">{feature.icon}</div></div>
+                <h3 className="text-2xl font-bold text-[#003366] mb-3">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
@@ -276,19 +276,19 @@ export default function AutoTransportWebsite() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F9F6F0] to-white">
+      <section className="py-24 bg-[#F9F6F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#0A2647] mb-4">Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C]">Services</span></h2>
+            <h2 className="text-5xl font-bold text-[#003366] mb-4">Premium <span className="text-[#FF8C00]">Services</span></h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive vehicle transport solutions tailored to your needs</p>
           </motion.div>
 
           {/* Mobile Carousel */}
           <div className="md:hidden relative">
-            <div className="overflow-hidden"><div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>{services.map((service, idx) => (<div key={idx} onClick={() => window.location.href = service.link} className="w-full flex-shrink-0 px-4 cursor-pointer"><div className="bg-white rounded-2xl shadow-xl overflow-hidden hover-card"><div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" /></div><div className="p-6"><h3 className="text-2xl font-bold text-[#0A2647] mb-3">{service.title}</h3><p className="text-gray-600">{service.description}</p></div></div></div>))}</div></div>
-            <button onClick={prevSlide} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronLeft className="w-6 h-6 text-[#0A2647]" /></button>
-            <button onClick={nextSlide} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronRight className="w-6 h-6 text-[#0A2647]" /></button>
-            <div className="flex justify-center mt-8 gap-2">{services.map((_, idx) => (<button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'w-8 bg-[#2C5F2D]' : 'bg-gray-300'}`} />))}</div>
+            <div className="overflow-hidden"><div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>{services.map((service, idx) => (<div key={idx} onClick={() => window.location.href = service.link} className="w-full flex-shrink-0 px-4 cursor-pointer"><div className="bg-white rounded-2xl shadow-xl overflow-hidden hover-card"><div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" /></div><div className="p-6"><h3 className="text-2xl font-bold text-[#003366] mb-3">{service.title}</h3><p className="text-gray-600">{service.description}</p></div></div></div>))}</div></div>
+            <button onClick={prevSlide} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronLeft className="w-6 h-6 text-[#003366]" /></button>
+            <button onClick={nextSlide} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronRight className="w-6 h-6 text-[#003366]" /></button>
+            <div className="flex justify-center mt-8 gap-2">{services.map((_, idx) => (<button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'w-8 bg-[#FF8C00]' : 'bg-gray-300'}`} />))}</div>
           </div>
 
           {/* Desktop Grid */}
@@ -296,7 +296,7 @@ export default function AutoTransportWebsite() {
             {services.map((service, idx) => (
               <motion.div key={idx} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ y: -8 }} onClick={() => window.location.href = service.link} className="bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-2xl group">
                 <div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" /></div>
-                <div className="p-6"><h3 className="text-2xl font-bold text-[#0A2647] mb-3">{service.title}</h3><p className="text-gray-600 leading-relaxed">{service.description}</p></div>
+                <div className="p-6"><h3 className="text-2xl font-bold text-[#003366] mb-3">{service.title}</h3><p className="text-gray-600 leading-relaxed">{service.description}</p></div>
               </motion.div>
             ))}
           </div>
@@ -306,23 +306,23 @@ export default function AutoTransportWebsite() {
       {/* Why Choose Us */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16"><h2 className="text-5xl font-bold text-[#0A2647]">Why Choose Us</h2></motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16"><h2 className="text-5xl font-bold text-[#003366]">Why Choose Us</h2></motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{ title: "On Time Shipping", icon: <Clock className="w-8 h-8" />, desc: "Guaranteed on-time pickup and delivery, every single time." }, { title: "Licensed And Insured", icon: <ShieldCheck className="w-8 h-8" />, desc: "Fully licensed and insured for complete peace of mind." }, { title: "Quick Response", icon: <MessageCircle className="w-8 h-8" />, desc: "Speedy support, instant updates, and zero delays." }, { title: "Trained Workers", icon: <HardHat className="w-8 h-8" />, desc: "Skilled professionals ensuring safe and timely transport." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-gray-100"><div className="w-16 h-16 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#0A2647] mb-3">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+            {[{ title: "On Time Shipping", icon: <Clock className="w-8 h-8" />, desc: "Guaranteed on-time pickup and delivery, every single time." }, { title: "Licensed And Insured", icon: <ShieldCheck className="w-8 h-8" />, desc: "Fully licensed and insured for complete peace of mind." }, { title: "Quick Response", icon: <MessageCircle className="w-8 h-8" />, desc: "Speedy support, instant updates, and zero delays." }, { title: "Trained Workers", icon: <HardHat className="w-8 h-8" />, desc: "Skilled professionals ensuring safe and timely transport." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-gray-100"><div className="w-16 h-16 bg-[#FF8C00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-3">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
           </motion.div>
         </div>
       </section>
 
       {/* Pricing Factors */}
-      <section className="py-24 bg-gradient-to-br from-[#F9F6F0] to-white">
+      <section className="py-24 bg-[#F9F6F0]">
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
-            <span className="text-sm font-semibold text-[#2C5F2D] tracking-wider uppercase">Pricing Transparency</span>
-            <h2 className="text-5xl font-bold text-[#0A2647] mt-2">Understanding Your Quote</h2>
+            <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Pricing Transparency</span>
+            <h2 className="text-5xl font-bold text-[#003366] mt-2">Understanding Your Quote</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">Key factors that influence your shipping cost — no surprises, just clarity.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{ title: "Vehicle Specifications", icon: <Car className="w-8 h-8" />, desc: "Size, weight, and type affect costs. We provide competitive rates for all vehicles." }, { title: "Distance & Route", icon: <Route className="w-8 h-8" />, desc: "Longer distances mean lower per-mile rates. We optimize for cost-effectiveness." }, { title: "Vehicle Condition", icon: <Wrench className="w-8 h-8" />, desc: "Non-running vehicles require special equipment. Our team handles it safely." }, { title: "Seasonal Timing", icon: <Calendar className="w-8 h-8" />, desc: "Book in advance for the best rates during peak seasons." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"><div className="w-14 h-14 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center mb-5"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#0A2647] mb-2">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+            {[{ title: "Vehicle Specifications", icon: <Car className="w-8 h-8" />, desc: "Size, weight, and type affect costs. We provide competitive rates for all vehicles." }, { title: "Distance & Route", icon: <Route className="w-8 h-8" />, desc: "Longer distances mean lower per-mile rates. We optimize for cost-effectiveness." }, { title: "Vehicle Condition", icon: <Wrench className="w-8 h-8" />, desc: "Non-running vehicles require special equipment. Our team handles it safely." }, { title: "Seasonal Timing", icon: <Calendar className="w-8 h-8" />, desc: "Book in advance for the best rates during peak seasons." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"><div className="w-14 h-14 bg-[#FF8C00] rounded-xl flex items-center justify-center mb-5"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-2">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
           </motion.div>
         </div>
       </section>

@@ -37,21 +37,21 @@ const FormSubmissionConfirmation = () => {
   }, [countdown, navigate]);
 
   const keyPoints = [
-    { icon: <Clock className="w-8 h-8" />, title: "Quick Response", desc: "We aim to respond to all inquiries within one business day.", gradient: "from-[#0A2647] to-[#2C5F2D]" },
-    { icon: <MessageSquare className="w-8 h-8" />, title: "Direct Communication", desc: "A dedicated team member will personally handle your inquiry.", gradient: "from-[#2C5F2D] to-[#E8A87C]" },
-    { icon: <Mail className="w-8 h-8" />, title: "Email Confirmation", desc: "We've sent a confirmation email to the address you provided.", gradient: "from-[#0A2647] to-[#E8A87C]" },
+    { icon: <Clock className="w-8 h-8" />, title: "Quick Response", desc: "We aim to respond to all inquiries within one business day.", color: "#FF8C00" },
+    { icon: <MessageSquare className="w-8 h-8" />, title: "Direct Communication", desc: "A dedicated team member will personally handle your inquiry.", color: "#003366" },
+    { icon: <Mail className="w-8 h-8" />, title: "Email Confirmation", desc: "We've sent a confirmation email to the address you provided.", color: "#FF8C00" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-[#F9F6F0] to-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[#F9F6F0] flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#0A2647]/5 rounded-full"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#003366]/5 rounded-full"
         />
       </div>
 
@@ -67,12 +67,12 @@ const FormSubmissionConfirmation = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] rounded-full mb-6 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#003366] rounded-full mb-6 shadow-lg"
           >
-            <CheckCircle className="w-4 h-4 text-[#E8A87C]" />
+            <CheckCircle className="w-4 h-4 text-[#FF8C00]" />
             <span className="text-sm font-medium text-white">Submission Successful</span>
           </motion.div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A2647] mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#003366] mb-4">
             Thank You!
           </h1>
           <p className="text-lg text-gray-600">
@@ -82,7 +82,7 @@ const FormSubmissionConfirmation = () => {
             initial={{ width: 0 }}
             animate={{ width: 80 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-1 bg-gradient-to-r from-[#2C5F2D] to-[#E8A87C] mx-auto rounded-full mt-4"
+            className="h-1 bg-[#FF8C00] mx-auto rounded-full mt-4"
           />
         </motion.div>
 
@@ -95,7 +95,7 @@ const FormSubmissionConfirmation = () => {
         >
           <div className="grid md:grid-cols-5 gap-0">
             {/* Left side with icon */}
-            <div className="md:col-span-2 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+            <div className="md:col-span-2 bg-[#003366] flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
               </div>
@@ -106,7 +106,7 @@ const FormSubmissionConfirmation = () => {
                   className="absolute inset-0 bg-white rounded-full opacity-20"
                 />
                 <div className="relative bg-white rounded-full p-6 shadow-xl">
-                  <Truck className="w-16 h-16 md:w-20 md:h-20 text-[#2C5F2D]" />
+                  <Truck className="w-16 h-16 md:w-20 md:h-20 text-[#FF8C00]" />
                 </div>
               </div>
             </div>
@@ -114,10 +114,10 @@ const FormSubmissionConfirmation = () => {
             {/* Right side with message */}
             <div className="md:col-span-3 p-8 md:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center shadow-md">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#0A2647]">
+                <h2 className="text-2xl font-bold text-[#003366]">
                   Form Submitted Successfully
                 </h2>
               </div>
@@ -125,13 +125,13 @@ const FormSubmissionConfirmation = () => {
               <div className="space-y-4">
                 <p className="text-gray-700 text-lg leading-relaxed">
                   We've received your contact form submission and will get back to you shortly. 
-                  Our team typically responds within <span className="font-semibold text-[#2C5F2D]">24 hours</span> during business days.
+                  Our team typically responds within <span className="font-semibold text-[#FF8C00]">24 hours</span> during business days.
                 </p>
                 <div className="flex items-center gap-3 p-4 bg-[#F9F6F0] rounded-xl">
-                  <Phone className="w-5 h-5 text-[#2C5F2D]" />
+                  <Phone className="w-5 h-5 text-[#FF8C00]" />
                   <p className="text-gray-700">
                     Need urgent assistance? Call us at{' '}
-                    <a href="tel:+12093958481" className="font-semibold text-[#2C5F2D] hover:underline">+1 (209) 395-8481</a>
+                    <a href="tel:+12093958481" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 395-8481</a>
                   </p>
                 </div>
               </div>
@@ -153,10 +153,10 @@ const FormSubmissionConfirmation = () => {
               whileHover={{ y: -5 }}
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
             >
-              <div className={`w-14 h-14 bg-gradient-to-br ${point.gradient} rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-14 h-14 bg-[${point.color}] rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300`}>
                 <div className="text-white">{point.icon}</div>
               </div>
-              <h3 className="font-bold text-[#0A2647] mb-2 text-lg">{point.title}</h3>
+              <h3 className="font-bold text-[#003366] mb-2 text-lg">{point.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
             </motion.div>
           ))}
@@ -171,10 +171,10 @@ const FormSubmissionConfirmation = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h3 className="font-bold text-[#0A2647] mb-2 text-lg">Need immediate assistance?</h3>
+              <h3 className="font-bold text-[#003366] mb-2 text-lg">Need immediate assistance?</h3>
               <p className="text-gray-600">
                 Call us at{' '}
-                <a href="tel:+12093958481" className="font-semibold text-[#2C5F2D] hover:underline">+1 (209) 395-8481</a>{' '}
+                <a href="tel:+12093958481" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 395-8481</a>{' '}
                 during business hours.
               </p>
             </div>
@@ -184,7 +184,7 @@ const FormSubmissionConfirmation = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => window.location.href = "/"}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#003366] text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:bg-[#002244]"
               >
                 <Home className="w-4 h-4" />
                 Return to Home
@@ -193,7 +193,7 @@ const FormSubmissionConfirmation = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => window.location.href = "/contact"}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 hover:border-[#2C5F2D] text-gray-700 font-medium rounded-xl transition-all duration-300 hover:shadow-md"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 hover:border-[#FF8C00] text-gray-700 font-medium rounded-xl transition-all duration-300 hover:shadow-md"
               >
                 <RefreshCw className="w-4 h-4" />
                 Contact Again
@@ -205,7 +205,7 @@ const FormSubmissionConfirmation = () => {
           <div className="mt-8 pt-6 border-t border-gray-100 text-center">
             <p className="text-gray-500 mb-3">
               You will be automatically redirected to our homepage in
-              <span className="font-bold text-[#2C5F2D] mx-1 text-lg">{countdown}</span>
+              <span className="font-bold text-[#FF8C00] mx-1 text-lg">{countdown}</span>
               seconds.
             </p>
             <div className="w-full bg-gray-100 rounded-full h-2 max-w-md mx-auto overflow-hidden">
@@ -213,7 +213,7 @@ const FormSubmissionConfirmation = () => {
                 initial={{ width: "0%" }}
                 animate={{ width: `${(5 - countdown) * 20}%` }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] h-2 rounded-full"
+                className="bg-[#FF8C00] h-2 rounded-full"
               />
             </div>
           </div>
@@ -227,16 +227,16 @@ const FormSubmissionConfirmation = () => {
           className="flex justify-center items-center gap-6 mt-8"
         >
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-[#2C5F2D]" />
+            <Shield className="w-4 h-4 text-[#FF8C00]" />
             <span className="text-xs text-gray-500">Secure Submission</span>
           </div>
           <div className="flex gap-0.5">
             {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className="w-3 h-3 text-[#E8A87C] fill-[#E8A87C]" />
+              <Star key={star} className="w-3 h-3 text-[#FF8C00] fill-[#FF8C00]" />
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#2C5F2D]" />
+            <Clock className="w-4 h-4 text-[#FF8C00]" />
             <span className="text-xs text-gray-500">24/7 Support</span>
           </div>
         </motion.div>
@@ -246,7 +246,7 @@ const FormSubmissionConfirmation = () => {
           <p>© {new Date().getFullYear()} amerifreightautologistics.com. All rights reserved.</p>
           <p className="mt-1">
             Developed and Managed by{" "}
-            <a href='https://growthflowmedia.com' target="_blank" rel="noopener noreferrer" className="text-[#2C5F2D] font-semibold hover:underline">
+            <a href='https://growthflowmedia.com' target="_blank" rel="noopener noreferrer" className="text-[#FF8C00] font-semibold hover:underline">
               GROWTH FLOW MEDIA
             </a>
           </p>

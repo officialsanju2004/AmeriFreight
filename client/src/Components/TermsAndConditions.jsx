@@ -41,18 +41,18 @@ export default function TermsAndConditions() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-white via-[#F9F6F0] to-white">
+      <div className="min-h-screen bg-[#F9F6F0]">
         {/* Animated Background */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#0A2647]/5 to-[#2C5F2D]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#E8A87C]/10 to-[#2C5F2D]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
         </div>
 
         {/* Hero Header */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="relative bg-gradient-to-r from-[#0A2647] via-[#0A2647] to-[#2C5F2D] text-white overflow-hidden"
+          className="relative bg-[#003366] text-white overflow-hidden"
         >
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -64,7 +64,7 @@ export default function TermsAndConditions() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-2xl mb-8 shadow-xl"
+                className="inline-flex items-center justify-center w-20 h-20 bg-[#FF8C00] rounded-2xl mb-8 shadow-xl"
               >
                 <FaFileContract className="w-10 h-10 text-white" />
               </motion.div>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#E8A87C] bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
               >
                 Terms and Conditions
               </motion.h1>
@@ -96,7 +96,7 @@ export default function TermsAndConditions() {
             </div>
           </div>
           
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F9F6F0] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#F9F6F0]" />
         </motion.div>
 
         {/* Main Content */}
@@ -108,7 +108,7 @@ export default function TermsAndConditions() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="flex items-center justify-between w-full text-left"
               >
-                <span className="font-semibold text-[#0A2647]">Navigation Menu</span>
+                <span className="font-semibold text-[#003366]">Navigation Menu</span>
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
@@ -124,7 +124,7 @@ export default function TermsAndConditions() {
                 >
                   <div className="sticky top-24 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
                     <div className="mb-4 pb-4 border-b border-gray-100">
-                      <h3 className="font-bold text-[#0A2647]">On this page</h3>
+                      <h3 className="font-bold text-[#003366]">On this page</h3>
                     </div>
                     <nav className="space-y-1">
                       {sections.map((section) => (
@@ -133,11 +133,11 @@ export default function TermsAndConditions() {
                           onClick={() => scrollToSection(section.id)}
                           className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-3 group ${
                             activeSection === section.id
-                              ? 'bg-gradient-to-r from-[#0A2647] to-[#2C5F2D] text-white shadow-md'
-                              : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#0A2647]'
+                              ? 'bg-[#FF8C00] text-white shadow-md'
+                              : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#003366]'
                           }`}
                         >
-                          <span className={activeSection === section.id ? 'text-white' : 'text-[#2C5F2D] group-hover:text-[#0A2647]'}>
+                          <span className={activeSection === section.id ? 'text-white' : 'text-[#FF8C00] group-hover:text-[#003366]'}>
                             {section.icon}
                           </span>
                           <span className="text-sm font-medium">{section.title}</span>
@@ -149,14 +149,14 @@ export default function TermsAndConditions() {
                     </nav>
                     
                     {/* Contact Card */}
-                    <div className="mt-6 p-4 bg-gradient-to-br from-[#F9F6F0] to-white rounded-xl border border-[#0A2647]/10">
+                    <div className="mt-6 p-4 bg-[#F9F6F0] rounded-xl border border-[#003366]/10">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center">
                           <Phone className="w-4 h-4 text-white" />
                         </div>
-                        <span className="text-sm font-semibold text-[#0A2647]">Questions?</span>
+                        <span className="text-sm font-semibold text-[#003366]">Questions?</span>
                       </div>
-                      <a href="tel:+12093958481" className="text-sm text-[#2C5F2D] font-medium hover:underline">
+                      <a href="tel:+12093958481" className="text-sm text-[#FF8C00] font-medium hover:underline">
                         +1 (209) 395-8481
                       </a>
                     </div>
@@ -176,7 +176,7 @@ export default function TermsAndConditions() {
                   className="mb-10"
                 >
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    Welcome to Ameri Freight  Autologistics LLC. By accessing or using our website and services, including SMS communications, you agree to the following Terms and Conditions.
+                    Welcome to Ameri Freight Autologistics LLC. By accessing or using our website and services, including SMS communications, you agree to the following Terms and Conditions.
                   </p>
                 </motion.section>
 
@@ -189,20 +189,20 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Smartphone className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">1. SMS Communications</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">1. SMS Communications</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    By providing your phone number and opting in to receive text messages, you consent to receive SMS communications from Ameri Freight  Autologistics LLC regarding:
+                    By providing your phone number and opting in to receive text messages, you consent to receive SMS communications from Ameri Freight Autologistics LLC regarding:
                   </p>
                   <div className="space-y-2 mb-6">
                     {["Load updates", "Dispatch notifications", "Customer service communications", "Appointment confirmations", "Account-related updates"].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#2C5F2D] flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -212,7 +212,7 @@ export default function TermsAndConditions() {
                     <p className="text-gray-700"><span className="font-semibold">Message and data rates:</span> May apply.</p>
                     <p className="text-gray-700">
                       <span className="font-semibold">For assistance:</span> Text HELP or visit{' '}
-                      <a href="https://Ameri Freight autologistics.com" className="text-[#2C5F2D] font-semibold hover:underline">Ameri Freight autologistics.com</a>
+                      <a href="https://AmeriFreightautologistics.com" className="text-[#FF8C00] font-semibold hover:underline">AmeriFreightautologistics.com</a>
                     </p>
                     <p className="text-gray-700 text-sm mt-2">
                       We verbally ask customers for consent to receive SMS messages. This opt-in allows us to send important updates, support confirmations, and service notifications. By obtaining verbal consent, we ensure compliance with communication and privacy guidelines.
@@ -229,11 +229,11 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Shield className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">2. Use of Services</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">2. Use of Services</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
@@ -250,15 +250,15 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <FileText className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">3. Intellectual Property</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">3. Intellectual Property</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    All content, branding, and materials on this website are the property of Ameri Freight  Autologistics LLC and may not be reproduced without written permission.
+                    All content, branding, and materials on this website are the property of Ameri Freight Autologistics LLC and may not be reproduced without written permission.
                   </p>
                 </motion.section>
 
@@ -271,15 +271,15 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <AlertCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">4. Limitation of Liability</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">4. Limitation of Liability</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Ameri Freight  Autologistics LLC shall not be held liable for delays, service interruptions, or technical issues beyond our control.
+                    Ameri Freight Autologistics LLC shall not be held liable for delays, service interruptions, or technical issues beyond our control.
                   </p>
                 </motion.section>
 
@@ -292,19 +292,19 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#2C5F2D] to-[#E8A87C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Lock className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">5. Privacy Policy</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">5. Privacy Policy</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed mb-4">
                     Your use of our services is also governed by our Privacy Policy. Please review our Privacy Policy page for more details.
                   </p>
                   
-                  <div className="mt-6 p-5 bg-gradient-to-r from-[#F9F6F0] to-white rounded-xl border border-[#0A2647]/10">
-                    <h3 className="text-xl font-bold text-[#0A2647] mb-4">SMS Communications Privacy</h3>
+                  <div className="mt-6 p-5 bg-[#F9F6F0] rounded-xl border border-[#003366]/10">
+                    <h3 className="text-xl font-bold text-[#003366] mb-4">SMS Communications Privacy</h3>
                     <p className="text-gray-700 mb-3">When you opt in to receive SMS communications:</p>
                     <div className="space-y-2">
                       {[
@@ -313,7 +313,7 @@ export default function TermsAndConditions() {
                         "We do not sell, rent, or share your mobile information with third parties for marketing purposes."
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#2C5F2D] flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
                           <span className="text-gray-700">{item}</span>
                         </div>
                       ))}
@@ -322,7 +322,7 @@ export default function TermsAndConditions() {
                       <p className="text-gray-700">You may opt out at any time by texting <span className="font-semibold">STOP</span>.</p>
                       <p className="text-gray-700 mt-2">
                         For assistance, text <span className="font-semibold">HELP</span> or visit{' '}
-                        <a href="https://amerifreightautologistics.com" className="text-[#2C5F2D] font-semibold hover:underline">Ameri Freight autologistics.com</a>
+                        <a href="https://amerifreightautologistics.com" className="text-[#FF8C00] font-semibold hover:underline">AmeriFreightautologistics.com</a>
                       </p>
                     </div>
                   </div>
@@ -337,11 +337,11 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0A2647] to-[#2C5F2D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Database className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0A2647]">6. Data Protection</h2>
+                      <h2 className="text-2xl font-bold text-[#003366]">6. Data Protection</h2>
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
@@ -357,7 +357,7 @@ export default function TermsAndConditions() {
                   className="pt-6 border-t border-gray-100"
                 >
                   <div className="text-center">
-                    <a href="/privacy-policy" className="inline-flex items-center gap-2 text-[#2C5F2D] font-semibold hover:gap-3 transition-all duration-300">
+                    <a href="/privacy-policy" className="inline-flex items-center gap-2 text-[#FF8C00] font-semibold hover:gap-3 transition-all duration-300">
                       View Our Privacy Policy
                       <ChevronRight className="w-4 h-4" />
                     </a>
