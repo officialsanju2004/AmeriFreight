@@ -83,9 +83,9 @@ export default function ContactUs() {
   };
 
   const contactCards = [
-    { icon: <Phone className="w-6 h-6" />, label: "Call us 24/7", value: "+1 (209) 395-8481", href: "tel:+12093958481", color: "#FF8C00" },
-    { icon: <MapPin className="w-6 h-6" />, label: "Address", value: "2027 Bright Star Pl, Stockton, CA 95209", href: null, color: "#003366" },
-    { icon: <MailIcon className="w-6 h-6" />, label: "Email Us", value: "Info@AmeriFreightautologistics.com", href: "mailto:Info@AmeriFreightautologistics.com", color: "#FF8C00" },
+    { icon: <Phone className="w-6 h-6" />, label: "Call us 24/7", value: "+1 (209) 395-8481", href: "tel:+12093958481", color: "#001E41" },
+    { icon: <MapPin className="w-6 h-6" />, label: "Address", value: "2027 Bright Star Pl, Stockton, CA 95209", href: null, color: "#001E41" },
+    { icon: <MailIcon className="w-6 h-6" />, label: "Email Us", value: "Info@AmeriFreightautologistics.com", href: "mailto:Info@AmeriFreightautologistics.com", color: "#001E41" },
   ];
 
   return (
@@ -109,7 +109,7 @@ export default function ContactUs() {
         </AnimatePresence>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-[#003366]/85" />
+        <div className="absolute inset-0 bg-[#001E41]/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
 
         {/* Content */}
@@ -125,7 +125,7 @@ export default function ContactUs() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6"
             >
-              <MessageSquare className="w-4 h-4 text-[#FF8C00]" />
+              <MessageSquare className="w-4 h-4 text-[#001E41]" />
               <span className="text-sm font-medium text-white/90">Get in Touch</span>
             </motion.div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
@@ -151,7 +151,7 @@ export default function ContactUs() {
               key={idx}
               onClick={() => setCurrent(idx)}
               className={`transition-all duration-300 rounded-full ${
-                idx === current ? "w-8 h-2 bg-[#FF8C00]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                idx === current ? "w-8 h-2 bg-[#001E41]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
@@ -162,8 +162,8 @@ export default function ContactUs() {
       <section className="relative overflow-hidden bg-[#F9F6F0] py-16 md:py-24">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#001E41]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#001E41]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -176,18 +176,18 @@ export default function ContactUs() {
               variants={fadeLeft}
             >
               <div className="mb-8">
-                <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Get Your Quote</span>
+                <span className="text-sm font-semibold text-[#001E41] tracking-wider uppercase">Get Your Quote</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#003366] mt-2">
                   Request a Free 
-                  <span className="text-[#FF8C00]"> Quote</span>
+                  <span className="text-[#001E41]"> Quote</span>
                 </h2>
-                <div className="w-20 h-1 bg-[#FF8C00] rounded-full mt-4" />
+                <div className="w-20 h-1 bg-[#001E41] rounded-full mt-4" />
               </div>
 
               {/* Disclaimer */}
-              <div className="mb-8 p-5 bg-[#003366]/5 rounded-xl border-l-4 border-[#FF8C00]">
+              <div className="mb-8 p-5 bg-[#001E41]/5 rounded-xl border-l-4 border-[#001E41]">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-bold text-[#003366]">Disclaimer:</span> By providing my phone number to "Ameri Freight Autologistics LLC, California", I agree and acknowledge that "Ameri Freight Autologistics, LLC, California" may send text messages to my wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to opt out by replying "STOP", assistance can be found by texting "HELP". For more information on how your data will be handled please visit: <a href="/privacy-policy" className="text-[#FF8C00] font-semibold hover:underline">Privacy Policy</a>
+                  <span className="font-bold text-[#003366]">Disclaimer:</span> By providing my phone number to "Ameri Freight Autologistics LLC, California", I agree and acknowledge that "Ameri Freight Autologistics, LLC, California" may send text messages to my wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to opt out by replying "STOP", assistance can be found by texting "HELP". For more information on how your data will be handled please visit: <a href="/privacy-policy" className="text-[#001E41] font-semibold hover:underline">Privacy Policy</a>
                 </p>
               </div>
 
@@ -210,7 +210,7 @@ export default function ContactUs() {
                     </div>
                     <div>
                       <p className="text-xs font-medium text-gray-500">{card.label}</p>
-                      <p className="text-base md:text-lg font-bold text-[#003366] group-hover:text-[#FF8C00] transition-colors">
+                      <p className="text-base md:text-lg font-bold text-[#003366] group-hover:text-[#001E41] transition-colors">
                         {card.value}
                       </p>
                     </div>
@@ -227,7 +227,7 @@ export default function ContactUs() {
                 className="mt-8 p-4 bg-white rounded-xl text-center shadow-md"
               >
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Shield className="w-5 h-5 text-[#FF8C00]" />
+                  <Shield className="w-5 h-5 text-[#001E41]" />
                   <span className="font-semibold text-[#003366]">100% Secure & Confidential</span>
                 </div>
                 <p className="text-xs text-gray-500">Your information is protected with industry-standard encryption</p>
@@ -242,10 +242,10 @@ export default function ContactUs() {
               variants={fadeRight}
               className="relative"
             >
-              <div className="absolute inset-0 bg-[#003366] rounded-3xl blur-2xl opacity-20" />
+              <div className="absolute inset-0 bg-[#001E41] rounded-3xl blur-2xl opacity-20" />
               <div className="relative bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-10">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-[#FF8C00] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <div className="w-16 h-16 bg-[#001E41] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
                     <Send className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-[#003366]">Request A Free Quote</h3>
@@ -261,7 +261,7 @@ export default function ContactUs() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none"
                         placeholder="John Doe"
                         required
                       />
@@ -273,7 +273,7 @@ export default function ContactUs() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none"
                         placeholder="john@example.com"
                         required
                       />
@@ -287,7 +287,7 @@ export default function ContactUs() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none"
+                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none"
                       placeholder="Vehicle Transport Inquiry"
                       required
                     />
@@ -301,7 +301,7 @@ export default function ContactUs() {
                         name="pickup"
                         value={formData.pickup}
                         onChange={handleChange}
-                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none"
                         placeholder="City, State"
                         required
                       />
@@ -313,7 +313,7 @@ export default function ContactUs() {
                         name="dropoff"
                         value={formData.dropoff}
                         onChange={handleChange}
-                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none"
                         placeholder="City, State"
                         required
                       />
@@ -327,7 +327,7 @@ export default function ContactUs() {
                       value={formData.message}
                       onChange={handleChange}
                       rows="3"
-                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none resize-none"
+                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#001E41] focus:ring-4 focus:ring-[#001E41]/20 transition-all outline-none resize-none"
                       placeholder="Tell us about your vehicle and any special requirements..."
                     />
                   </div>
@@ -336,12 +336,12 @@ export default function ContactUs() {
                     <input
                       type="checkbox"
                       id="policy"
-                      className="mt-1 w-5 h-5 rounded border-gray-300 text-[#FF8C00] focus:ring-[#FF8C00]"
+                      className="mt-1 w-5 h-5 rounded border-gray-300 text-[#001E41] focus:ring-[#001E41]"
                       required
                     />
                     <label htmlFor="policy" className="text-sm text-gray-600">
                       By providing your details you agree to receive transactional SMS according to our{' '}
-                      <a href="/privacy-policy" className="text-[#FF8C00] font-semibold hover:underline">Privacy Policy</a>
+                      <a href="/privacy-policy" className="text-[#001E41] font-semibold hover:underline">Privacy Policy</a>
                     </label>
                   </div>
 
@@ -350,7 +350,7 @@ export default function ContactUs() {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg shadow-lg hover:bg-[#003366] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full py-4 bg-[#001E41] text-white rounded-xl font-bold text-lg shadow-lg hover:bg-[#001E41] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center gap-2">

@@ -44,15 +44,15 @@ export default function TermsAndConditions() {
       <div className="min-h-screen bg-[#F9F6F0]">
         {/* Animated Background */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#001E41]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#001E41]/10 rounded-full blur-3xl" />
         </div>
 
         {/* Hero Header */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="relative bg-[#003366] text-white overflow-hidden"
+          className="relative bg-[#001E41] text-white overflow-hidden"
         >
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -64,7 +64,7 @@ export default function TermsAndConditions() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-[#FF8C00] rounded-2xl mb-8 shadow-xl"
+                className="inline-flex items-center justify-center w-20 h-20 bg-[#001E41] rounded-2xl mb-8 shadow-xl"
               >
                 <FaFileContract className="w-10 h-10 text-white" />
               </motion.div>
@@ -133,11 +133,11 @@ export default function TermsAndConditions() {
                           onClick={() => scrollToSection(section.id)}
                           className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-3 group ${
                             activeSection === section.id
-                              ? 'bg-[#FF8C00] text-white shadow-md'
+                              ? 'bg-[#001E41] text-white shadow-md'
                               : 'text-gray-600 hover:bg-[#F9F6F0] hover:text-[#003366]'
                           }`}
                         >
-                          <span className={activeSection === section.id ? 'text-white' : 'text-[#FF8C00] group-hover:text-[#003366]'}>
+                          <span className={activeSection === section.id ? 'text-white' : 'text-[#001E41] group-hover:text-[#003366]'}>
                             {section.icon}
                           </span>
                           <span className="text-sm font-medium">{section.title}</span>
@@ -151,12 +151,12 @@ export default function TermsAndConditions() {
                     {/* Contact Card */}
                     <div className="mt-6 p-4 bg-[#F9F6F0] rounded-xl border border-[#003366]/10">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[#001E41] rounded-lg flex items-center justify-center">
                           <Phone className="w-4 h-4 text-white" />
                         </div>
                         <span className="text-sm font-semibold text-[#003366]">Questions?</span>
                       </div>
-                      <a href="tel:+12093958481" className="text-sm text-[#FF8C00] font-medium hover:underline">
+                      <a href="tel:+12093958481" className="text-sm text-[#001E41] font-medium hover:underline">
                         +1 (209) 395-8481
                       </a>
                     </div>
@@ -189,7 +189,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Smartphone className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -202,7 +202,7 @@ export default function TermsAndConditions() {
                   <div className="space-y-2 mb-6">
                     {["Load updates", "Dispatch notifications", "Customer service communications", "Appointment confirmations", "Account-related updates"].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-[#001E41] flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -212,7 +212,7 @@ export default function TermsAndConditions() {
                     <p className="text-gray-700"><span className="font-semibold">Message and data rates:</span> May apply.</p>
                     <p className="text-gray-700">
                       <span className="font-semibold">For assistance:</span> Text HELP or visit{' '}
-                      <a href="https://AmeriFreightautologistics.com" className="text-[#FF8C00] font-semibold hover:underline">AmeriFreightautologistics.com</a>
+                      <a href="https://AmeriFreightautologistics.com" className="text-[#001E41] font-semibold hover:underline">AmeriFreightautologistics.com</a>
                     </p>
                     <p className="text-gray-700 text-sm mt-2">
                       We verbally ask customers for consent to receive SMS messages. This opt-in allows us to send important updates, support confirmations, and service notifications. By obtaining verbal consent, we ensure compliance with communication and privacy guidelines.
@@ -229,7 +229,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Shield className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -250,7 +250,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <FileText className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -271,7 +271,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <AlertCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -292,7 +292,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Lock className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -313,7 +313,7 @@ export default function TermsAndConditions() {
                         "We do not sell, rent, or share your mobile information with third parties for marketing purposes."
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#FF8C00] flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-[#001E41] flex-shrink-0 mt-0.5" />
                           <span className="text-gray-700">{item}</span>
                         </div>
                       ))}
@@ -322,7 +322,7 @@ export default function TermsAndConditions() {
                       <p className="text-gray-700">You may opt out at any time by texting <span className="font-semibold">STOP</span>.</p>
                       <p className="text-gray-700 mt-2">
                         For assistance, text <span className="font-semibold">HELP</span> or visit{' '}
-                        <a href="https://amerifreightautologistics.com" className="text-[#FF8C00] font-semibold hover:underline">AmeriFreightautologistics.com</a>
+                        <a href="https://amerifreightautologistics.com" className="text-[#001E41] font-semibold hover:underline">AmeriFreightautologistics.com</a>
                       </p>
                     </div>
                   </div>
@@ -337,7 +337,7 @@ export default function TermsAndConditions() {
                   className="mb-10 scroll-mt-24"
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Database className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -357,7 +357,7 @@ export default function TermsAndConditions() {
                   className="pt-6 border-t border-gray-100"
                 >
                   <div className="text-center">
-                    <a href="/privacy-policy" className="inline-flex items-center gap-2 text-[#FF8C00] font-semibold hover:gap-3 transition-all duration-300">
+                    <a href="/privacy-policy" className="inline-flex items-center gap-2 text-[#001E41] font-semibold hover:gap-3 transition-all duration-300">
                       View Our Privacy Policy
                       <ChevronRight className="w-4 h-4" />
                     </a>

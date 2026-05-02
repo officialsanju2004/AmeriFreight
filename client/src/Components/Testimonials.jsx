@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import male1 from '../../Images/male1.jpg';
-import male2 from '../../Images/Male2.jpg';
+import male2 from '../../Images/male2.jpg';
 import male3 from '../../Images/Male3.jpg';
 import female1 from '../../Images/female1.jpg';
 import female2 from '../../Images/female2.jpg';
@@ -164,7 +164,7 @@ export default function TestimonialsSection() {
         >
           <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase mb-2 inline-block">Testimonials</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#003366] mb-6">
-            What Our <span className="text-[#FF8C00]">Clients Say</span>
+            What Our Clients Say
           </h2>
           <div className="w-24 h-1 bg-[#FF8C00] mx-auto rounded-full mb-6" />
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -269,7 +269,7 @@ export default function TestimonialsSection() {
                       <div className="relative">
                         <motion.div 
                           whileHover={{ scale: 1.05 }}
-                          className="w-14 h-14 rounded-full bg-[#FF8C00] p-[2px] shadow-md"
+                          className="w-14 h-14 rounded-full bg-[#001E41] p-[2px] shadow-md"
                         >
                           <img
                             src={testimonial.image}

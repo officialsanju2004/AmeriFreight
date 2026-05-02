@@ -28,8 +28,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Modern Professional Color Palette
 const colors = {
-  primary: '#003366',      // Navy Blue
-  secondary: '#FF8C00',    // Orange
+  primary: '#001E41',      // Navy Blue
+  secondary: '#fe930f',    // Orange
   accent: '#FFB347',       // Light Orange
   light: '#F9F6F0',        // Cream White
   dark: '#1B2A3B',         // Dark Slate
@@ -178,7 +178,7 @@ export default function AutoTransportWebsite() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={image1} alt="Luxury Auto Transport" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-[#003366]/85" />
+          <div className="absolute inset-0 bg-[#001E41]/85" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
         </div>
 
@@ -189,7 +189,7 @@ export default function AutoTransportWebsite() {
               <span className="block text-[#FF8C00] mt-2">Auto Transport</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mb-10 leading-relaxed">Nationwide vehicle shipping with premium care, transparent pricing, and on-time delivery guaranteed.</p>
-            <motion.button onClick={() => window.location.href = "/contact"} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="px-10 py-4 bg-[#FF8C00] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300">
+            <motion.button onClick={() => window.location.href = "/contact"} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="px-10 py-4 bg-[#001E41] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300">
               Free Quote
             </motion.button>
           </motion.div>
@@ -211,16 +211,16 @@ export default function AutoTransportWebsite() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <div className="relative">
-                <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#FF8C00]/20 rounded-full blur-3xl" />
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#001E41]/20 rounded-full blur-3xl" />
                 <h2 className="text-5xl font-bold text-[#003366] mb-8 leading-tight">
                   Car Transport isn't Just Our Business <span className="text-[#FF8C00]">—It's Our Passion.</span>
                 </h2>
                 <div className="space-y-6 text-gray-700">
                   <p className="text-lg font-semibold text-[#003366]">At Ameri Freight Autologistics LLC, California, we pride ourselves on delivering top-tier auto transport services at some of the most competitive prices in the market.</p>
-                  <p className="text-lg leading-relaxed">Let's be real — the industry is flooded with brokers. So, what makes us different? Simple: <span className="font-bold text-[#FF8C00]">we actually care.</span> We don't see you as just another number.</p>
-                  <p className="text-lg leading-relaxed">We work only with <span className="font-bold text-[#FF8C00]">the most trusted and reliable carriers</span> to ensure your vehicle gets where it needs to go, safely and on time.</p>
+                  <p className="text-lg leading-relaxed">Let's be real — the industry is flooded with brokers. So, what makes us different? Simple: <span className="font-bold text-[#001E41]">we actually care.</span> We don't see you as just another number.</p>
+                  <p className="text-lg leading-relaxed">We work only with <span className="font-bold text-[#001E41]">the most trusted and reliable carriers</span> to ensure your vehicle gets where it needs to go, safely and on time.</p>
                 </div>
-                <div className="mt-10 p-6 bg-[#003366]/5 rounded-2xl border-l-4 border-[#FF8C00]">
+                <div className="mt-10 p-6 bg-[#001E41]/5 rounded-2xl border-l-4 border-[#FF8C00]">
                   <div className="flex flex-wrap items-center gap-6">
                     <Phone className="w-10 h-10 text-[#FF8C00]" />
                     <div>
@@ -233,7 +233,7 @@ export default function AutoTransportWebsite() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <div className="absolute inset-0 bg-[#003366] rounded-3xl blur-2xl opacity-20" />
+              <div className="absolute inset-0 bg-[#001E41] rounded-3xl blur-2xl opacity-20" />
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-10">
                 <h3 className="text-3xl font-bold text-center mb-8 text-[#003366]">Request A Free Quote</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -248,7 +248,7 @@ export default function AutoTransportWebsite() {
                   </div>
                   <div><label className="block text-sm font-semibold text-gray-700 mb-2">Additional Message</label><textarea name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-[#FF8C00] focus:ring-4 focus:ring-[#FF8C00]/20 transition-all outline-none resize-none" placeholder="Tell us about your vehicle..."></textarea></div>
                   <div className="flex items-center gap-3"><input type="checkbox" id="policy" className="w-5 h-5 rounded border-gray-300 text-[#FF8C00] focus:ring-[#FF8C00]" required /><label htmlFor="policy" className="text-sm text-gray-600">By providing your details you agree to our <a href="/privacy-policy" className="text-[#FF8C00] font-semibold hover:underline">Privacy Policy</a></label></div>
-                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all">Get Free Quote →</motion.button>
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full py-4 bg-[#001E41] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all">Get Free Quote →</motion.button>
                 </form>
               </div>
             </motion.div>
@@ -266,7 +266,7 @@ export default function AutoTransportWebsite() {
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, idx) => (
               <motion.div key={idx} variants={fadeUp} whileHover={{ y: -10 }} className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                <div className="w-16 h-16 bg-[#FF8C00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md"><div className="text-white">{feature.icon}</div></div>
+                <div className="w-16 h-16 bg-[#001E41] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md"><div className="text-white">{feature.icon}</div></div>
                 <h3 className="text-2xl font-bold text-[#003366] mb-3">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
               </motion.div>
@@ -288,7 +288,7 @@ export default function AutoTransportWebsite() {
             <div className="overflow-hidden"><div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>{services.map((service, idx) => (<div key={idx} onClick={() => window.location.href = service.link} className="w-full flex-shrink-0 px-4 cursor-pointer"><div className="bg-white rounded-2xl shadow-xl overflow-hidden hover-card"><div className="h-56 overflow-hidden"><img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" /></div><div className="p-6"><h3 className="text-2xl font-bold text-[#003366] mb-3">{service.title}</h3><p className="text-gray-600">{service.description}</p></div></div></div>))}</div></div>
             <button onClick={prevSlide} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronLeft className="w-6 h-6 text-[#003366]" /></button>
             <button onClick={nextSlide} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg"><ChevronRight className="w-6 h-6 text-[#003366]" /></button>
-            <div className="flex justify-center mt-8 gap-2">{services.map((_, idx) => (<button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'w-8 bg-[#FF8C00]' : 'bg-gray-300'}`} />))}</div>
+            <div className="flex justify-center mt-8 gap-2">{services.map((_, idx) => (<button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'w-8 bg-[#001E41]' : 'bg-gray-300'}`} />))}</div>
           </div>
 
           {/* Desktop Grid */}
@@ -308,7 +308,7 @@ export default function AutoTransportWebsite() {
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16"><h2 className="text-5xl font-bold text-[#003366]">Why Choose Us</h2></motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{ title: "On Time Shipping", icon: <Clock className="w-8 h-8" />, desc: "Guaranteed on-time pickup and delivery, every single time." }, { title: "Licensed And Insured", icon: <ShieldCheck className="w-8 h-8" />, desc: "Fully licensed and insured for complete peace of mind." }, { title: "Quick Response", icon: <MessageCircle className="w-8 h-8" />, desc: "Speedy support, instant updates, and zero delays." }, { title: "Trained Workers", icon: <HardHat className="w-8 h-8" />, desc: "Skilled professionals ensuring safe and timely transport." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-gray-100"><div className="w-16 h-16 bg-[#FF8C00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-3">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+            {[{ title: "On Time Shipping", icon: <Clock className="w-8 h-8" />, desc: "Guaranteed on-time pickup and delivery, every single time." }, { title: "Licensed And Insured", icon: <ShieldCheck className="w-8 h-8" />, desc: "Fully licensed and insured for complete peace of mind." }, { title: "Quick Response", icon: <MessageCircle className="w-8 h-8" />, desc: "Speedy support, instant updates, and zero delays." }, { title: "Trained Workers", icon: <HardHat className="w-8 h-8" />, desc: "Skilled professionals ensuring safe and timely transport." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border border-gray-100"><div className="w-16 h-16 bg-[#001E41] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-3">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
           </motion.div>
         </div>
       </section>
@@ -322,7 +322,7 @@ export default function AutoTransportWebsite() {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">Key factors that influence your shipping cost — no surprises, just clarity.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{ title: "Vehicle Specifications", icon: <Car className="w-8 h-8" />, desc: "Size, weight, and type affect costs. We provide competitive rates for all vehicles." }, { title: "Distance & Route", icon: <Route className="w-8 h-8" />, desc: "Longer distances mean lower per-mile rates. We optimize for cost-effectiveness." }, { title: "Vehicle Condition", icon: <Wrench className="w-8 h-8" />, desc: "Non-running vehicles require special equipment. Our team handles it safely." }, { title: "Seasonal Timing", icon: <Calendar className="w-8 h-8" />, desc: "Book in advance for the best rates during peak seasons." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"><div className="w-14 h-14 bg-[#FF8C00] rounded-xl flex items-center justify-center mb-5"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-2">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
+            {[{ title: "Vehicle Specifications", icon: <Car className="w-8 h-8" />, desc: "Size, weight, and type affect costs. We provide competitive rates for all vehicles." }, { title: "Distance & Route", icon: <Route className="w-8 h-8" />, desc: "Longer distances mean lower per-mile rates. We optimize for cost-effectiveness." }, { title: "Vehicle Condition", icon: <Wrench className="w-8 h-8" />, desc: "Non-running vehicles require special equipment. Our team handles it safely." }, { title: "Seasonal Timing", icon: <Calendar className="w-8 h-8" />, desc: "Book in advance for the best rates during peak seasons." }].map((item, idx) => (<motion.div key={idx} variants={fadeUp} whileHover={{ y: -8 }} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"><div className="w-14 h-14 bg-[#001E41] rounded-xl flex items-center justify-center mb-5"><div className="text-white">{item.icon}</div></div><h3 className="text-xl font-bold text-[#003366] mb-2">{item.title}</h3><p className="text-gray-600">{item.desc}</p></motion.div>))}
           </motion.div>
         </div>
       </section>

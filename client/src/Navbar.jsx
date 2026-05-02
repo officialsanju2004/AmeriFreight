@@ -229,8 +229,8 @@ const Navbar = () => {
                   to="/contact"
                   className={`ml-4 px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl ${
                     isScrolled || !isTransparent
-                      ? 'bg-[#FF8C00] text-white hover:bg-[#003366]'
-                      : 'bg-white text-[#FF8C00] hover:bg-gray-50'
+                      ? 'bg-[#001E41] text-white hover:bg-[#001E41]'
+                      : 'bg-white text-[#001E41] hover:bg-gray-50'
                   }`}
                 >
                   Get A Quote
@@ -354,7 +354,7 @@ const Navbar = () => {
                   <div className="pt-4 mt-2 border-t border-gray-100 space-y-4">
                     <Link
                       to="/contact"
-                      className="block bg-[#003366] text-white px-6 py-3 rounded-xl font-semibold text-center hover:bg-[#FF8C00] transition-all duration-300"
+                      className="block bg-[#001E41] text-white px-6 py-3 rounded-xl font-semibold text-center hover:bg-[#FF8C00] transition-all duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Get A Quote

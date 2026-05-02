@@ -69,7 +69,7 @@ export default function BikeAtvTransport() {
         </AnimatePresence>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#003366]/80" />
+        <div className="absolute inset-0 bg-[#001E41]/80" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/60 to-transparent" />
 
         {/* Content */}
@@ -108,7 +108,7 @@ export default function BikeAtvTransport() {
               key={idx}
               onClick={() => setCurrent(idx)}
               className={`transition-all duration-300 rounded-full ${
-                idx === current ? "w-8 h-2 bg-[#FF8C00]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                idx === current ? "w-8 h-2 bg-[#001E41]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
@@ -119,8 +119,8 @@ export default function BikeAtvTransport() {
       <section className="relative overflow-hidden bg-[#F9F6F0] py-16 md:py-24">
         {/* Background Decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#001E41]/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#001E41]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -133,12 +133,12 @@ export default function BikeAtvTransport() {
               variants={fadeLeft}
             >
               <div className="mb-6">
-                <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Premium Service</span>
+                <span className="text-sm font-semibold text-[#001E41] tracking-wider uppercase">Premium Service</span>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mt-2 leading-tight">
                   BIKE / ATV / RTV
                   <span className="text-[#FF8C00]"> Transport</span>
                 </h2>
-                <div className="w-20 h-1 bg-[#FF8C00] rounded-full mt-4" />
+                <div className="w-20 h-1 bg-[#001E41] rounded-full mt-4" />
               </div>
 
               <motion.ul
@@ -154,7 +154,7 @@ export default function BikeAtvTransport() {
                     variants={fadeUp}
                     className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 bg-[#001E41] rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
                       <div className="text-white w-4 h-4">{feature.icon}</div>
                     </div>
                     <span className="text-gray-700 font-medium leading-relaxed">{feature.text}</span>
@@ -172,7 +172,7 @@ export default function BikeAtvTransport() {
               >
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
+                    <div key={i} className="w-8 h-8 rounded-full bg-[#001E41] flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">
                       ★
                     </div>
                   ))}
@@ -205,12 +205,12 @@ export default function BikeAtvTransport() {
                 />
                 <div className="absolute bottom-6 left-6 right-6 z-20">
                   <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-xl p-3">
-                    <div className="w-10 h-10 bg-[#FF8C00] rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[#001E41] rounded-xl flex items-center justify-center">
                       <Phone className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-white font-semibold">24/7 Support Available</p>
-                      <a href="tel:+12093958481" className="text-white/80 text-sm hover:text-[#FF8C00] transition">+1 (209) 395-8481</a>
+                      <a href="tel:+12093958481" className="text-white/80 text-sm hover:text-[#001E41] transition">+1 (209) 395-8481</a>
                     </div>
                   </div>
                 </div>
@@ -224,10 +224,10 @@ export default function BikeAtvTransport() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="mt-16 md:mt-20 p-6 md:p-10 bg-[#003366] rounded-2xl shadow-xl"
+            className="mt-16 md:mt-20 p-6 md:p-10 bg-[#001E41] rounded-2xl shadow-xl"
           >
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-[#FF8C00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-[#001E41] rounded-xl flex items-center justify-center flex-shrink-0">
                 <Quote className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -253,7 +253,7 @@ export default function BikeAtvTransport() {
           >
             <a
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#FF8C00] text-white rounded-xl font-bold text-lg hover:bg-[#003366] transform hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#001E41] text-white rounded-xl font-bold text-lg hover:bg-[#001E41] transform hover:scale-105 transition-all duration-300"
             >
               Get Your Free Quote Today
               <Truck className="w-5 h-5" />

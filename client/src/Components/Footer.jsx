@@ -33,7 +33,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#003366] text-white overflow-hidden">
+    <footer className="relative bg-[#001E41] text-white overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
@@ -60,7 +60,7 @@ export default function Footer() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             href="tel:+12093958481"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#003366] text-white rounded-xl font-bold shadow-lg hover:bg-[#002244] transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#001E41] text-white rounded-xl font-bold shadow-lg hover:bg-[#002244] transition-all duration-300"
           >
             <Phone className="w-5 h-5" />
             Call Us Now
@@ -259,7 +259,7 @@ export default function Footer() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#FF8C00] rounded-full shadow-lg flex items-center justify-center text-white hover:bg-[#003366] transition-all duration-300"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#001E41] rounded-full shadow-lg flex items-center justify-center text-white hover:bg-[#001E41] transition-all duration-300"
       >
         <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
       </motion.button>

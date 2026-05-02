@@ -40,7 +40,7 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section ref={heroRef} className="relative overflow-hidden bg-[#003366] pt-32 pb-20 md:pt-40 md:pb-28">
+      <section ref={heroRef} className="relative overflow-hidden bg-[#001E41] pt-32 pb-20 md:pt-40 md:pb-28">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FF8C00]/20 rounded-full blur-3xl" />
@@ -108,7 +108,7 @@ const About = () => {
               <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold border-2 border-[#003366]">
+                    <div key={i} className="w-8 h-8 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold border-2 border-[#001E41]">
                       ★
                     </div>
                   ))}
@@ -134,7 +134,7 @@ const About = () => {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001E41]/50 to-transparent z-10" />
                 <img
                   src={image7}
                   className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
@@ -168,8 +168,8 @@ const About = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">What We Stand For</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mt-2 mb-4">
-              Our Core <span className="text-[#FF8C00]">Values</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#001E41] mt-2 mb-4">
+              Our Core Values
             </h2>
             <div className="w-20 h-1 bg-[#FF8C00] mx-auto rounded-full" />
           </motion.div>
@@ -186,25 +186,25 @@ const About = () => {
                 title: "Affordable",
                 icon: <Trophy className="w-8 h-8" />,
                 desc: "We offer premium auto transport services at the most affordable prices, with zero hidden charges",
-                color: "#FF8C00"
+                color: "#001E41"
               },
               {
                 title: "On Time Shipping",
                 icon: <Clock className="w-8 h-8" />,
                 desc: "We value your time — guaranteed on-time pickup and delivery, every single time, without excuses",
-                color: "#003366"
+                color: "#001E41"
               },
               {
                 title: "Licensed And Insured",
                 icon: <ShieldCheck className="w-8 h-8" />,
                 desc: "Fully licensed and insured for your complete peace of mind — your vehicle is protected every mile",
-                color: "#FF8C00"
+                color: "#001E41"
               },
               {
                 title: "Trained Workers",
                 icon: <HardHat className="w-8 h-8" />,
                 desc: "Skilled professionals who know vehicle logistics, ensuring safe and timely transport every time",
-                color: "#003366"
+                color: "#001E41"
               },
             ].map((item, index) => (
               <motion.div
@@ -213,12 +213,12 @@ const About = () => {
                 whileHover={{ y: -8 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-[#003366] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#001E41] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                 <div className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100">
                   <div className={`w-16 h-16 bg-[${item.color}] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                     <div className="text-white">{item.icon}</div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#003366] mb-3">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-[#001E41] mb-3">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
@@ -238,7 +238,7 @@ const About = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="text-sm font-semibold text-[#FF8C00] tracking-wider uppercase">Our Purpose</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mt-2 mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#001E41] mt-2 mb-4">
               Mission & <span className="text-[#FF8C00]">Vision</span>
             </h2>
             <div className="w-20 h-1 bg-[#FF8C00] mx-auto rounded-full" />
@@ -255,10 +255,10 @@ const About = () => {
               className="group relative bg-white rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF8C00]/5 rounded-bl-full" />
-              <div className="w-20 h-20 bg-[#FF8C00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+              <div className="w-20 h-20 bg-[#001E41] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
                 <Goal className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-[#003366] mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-[#001E41] mb-4">Our Mission</h3>
               <p className="text-gray-700 leading-relaxed text-lg">
                 Our mission is to provide reliable, efficient, and affordable freight logistics solutions that exceed customer expectations. We strive to ensure safe and timely delivery of every shipment by leveraging skilled professionals, cutting-edge technology, and transparent communication. Our goal is to build long-term partnerships by consistently delivering excellence and making logistics hassle-free for businesses and individuals alike.
               </p>
@@ -271,7 +271,7 @@ const About = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeRight}
               whileHover={{ y: -5 }}
-              className="group relative bg-[#003366] rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500"
+              className="group relative bg-[#001E41] rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF8C00]/10 rounded-bl-full" />
               <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/20">
@@ -304,7 +304,7 @@ const About = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="p-4"
               >
-                <div className="text-3xl md:text-4xl font-bold text-[#003366] mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-[#001E41] mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-500 font-medium">{stat.label}</div>

@@ -46,7 +46,7 @@ const FormSubmissionConfirmation = () => {
     <div className="min-h-screen bg-[#F9F6F0] flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#003366]/5 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#001E41]/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#FF8C00]/10 rounded-full blur-3xl" />
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
@@ -67,7 +67,7 @@ const FormSubmissionConfirmation = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#003366] rounded-full mb-6 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#001E41] rounded-full mb-6 shadow-lg"
           >
             <CheckCircle className="w-4 h-4 text-[#FF8C00]" />
             <span className="text-sm font-medium text-white">Submission Successful</span>
@@ -95,7 +95,7 @@ const FormSubmissionConfirmation = () => {
         >
           <div className="grid md:grid-cols-5 gap-0">
             {/* Left side with icon */}
-            <div className="md:col-span-2 bg-[#003366] flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
+            <div className="md:col-span-2 bg-[#001E41] flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
               </div>
@@ -184,7 +184,7 @@ const FormSubmissionConfirmation = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => window.location.href = "/"}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#003366] text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:bg-[#002244]"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#001E41] text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:bg-[#002244]"
               >
                 <Home className="w-4 h-4" />
                 Return to Home
