@@ -360,7 +360,7 @@ export default function ContactUs() {
                     ) : (
                       "Get Free Quote →"
                     )}
-                  </motion.button>
+                </motion.button>
                 </form>
               </div>
             </motion.div>

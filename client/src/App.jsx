@@ -15,7 +15,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import AutoTransportWebsite from "./NorthStarSite";
+import AutoTransportWebsite from "./Ameri";
 import PrivacyPolicy from "./PrivacyPolicy";
 import BikeAtvTransport from "./Components/BikeAtvTransport";
 import BoatShipping from "./Components/BoatShipping";
