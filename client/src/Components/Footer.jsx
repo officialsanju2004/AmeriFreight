@@ -250,7 +250,7 @@ export default function Footer() {
           </div>
         </div>
       </motion.div>
-
+      
       {/* Scroll to Top Button */}
       <motion.button
         initial={{ opacity: 0, scale: 0 }}
@@ -259,7 +259,7 @@ export default function Footer() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#001E41] rounded-full shadow-lg flex items-center justify-center text-white hover:bg-[#001E41] transition-all duration-300"
+        className="fixed bottom-6 right-20 z-50 w-12 h-12 bg-[#001E41] rounded-full shadow-lg flex items-center justify-center text-white hover:bg-[#001E41] transition-all duration-300"
       >
         <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
       </motion.button>

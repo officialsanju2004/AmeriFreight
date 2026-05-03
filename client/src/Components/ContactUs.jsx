@@ -109,8 +109,8 @@ export default function ContactUs() {
         </AnimatePresence>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-[#001E41]/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F9F6F0] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#001E41]/65" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#F9F6F0]/70 via-[#F9F6F0]/20 to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
@@ -366,26 +366,8 @@ export default function ContactUs() {
             </motion.div>
           </div>
 
-          {/* Map Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-16 rounded-2xl overflow-hidden shadow-xl"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.123456789012!2d-121.2908!3d38.0406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8090c1c8a0a0a0a0%3A0x0!2s2027%20Bright%20Star%20Pl%2C%20Stockton%2C%20CA%2095209!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="100%"
-              height="350"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ameri Freight Autologistics Location"
-              className="w-full"
-            />
-          </motion.div>
+         
+      
         </div>
       </section>
 

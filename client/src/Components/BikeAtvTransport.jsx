@@ -70,7 +70,7 @@ export default function BikeAtvTransport() {
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-[#001E41]/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/60 to-transparent" />
+       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#F9F6F0]/70 via-[#F9F6F0]/20 to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
