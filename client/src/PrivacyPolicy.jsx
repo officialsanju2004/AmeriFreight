@@ -185,8 +185,8 @@ export default function PrivacyPolicy() {
                         </div>
                         <span className="text-sm font-semibold text-[#001E41]">Need help?</span>
                       </div>
-                      <a href="tel:+12093958481" className="text-sm text-[#001E41] font-medium hover:underline">
-                        +1 (209) 395-8481
+                      <a href="tel:+12098214888" className="text-sm text-[#001E41] font-medium hover:underline">
+                        +1 (209) 821-4888
                       </a>
                     </div>
                   </div>

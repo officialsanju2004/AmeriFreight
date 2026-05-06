@@ -361,13 +361,13 @@ const Navbar = () => {
                     </Link>
                     <div className="flex flex-col space-y-3 px-2">
                       <a
-                        href="tel:+12093958481"
+                        href="tel:+12098214888"
                         className="flex items-center space-x-3 text-gray-600 hover:text-[#FF8C00] transition-colors py-2"
                       >
                         <div className="w-8 h-8 bg-[#F9F6F0] rounded-full flex items-center justify-center">
                           <FaPhone className="w-3.5 h-3.5 text-[#FF8C00]" />
                         </div>
-                        <span className="text-sm">+1 (209) 395-8481</span>
+                        <span className="text-sm">+1 (209) 821-4888</span>
                       </a>
                       <a
                         href="mailto:Info@AmeriFreightautologistics.com"
