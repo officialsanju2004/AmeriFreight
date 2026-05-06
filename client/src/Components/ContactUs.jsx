@@ -83,7 +83,7 @@ export default function ContactUs() {
   };
 
   const contactCards = [
-    { icon: <Phone className="w-6 h-6" />, label: "Call us 24/7", value: "+1 (209) 395-8481", href: "tel:+12093958481", color: "#001E41" },
+    { icon: <Phone className="w-6 h-6" />, label: "Call us 24/7", value: "+1 (209) 395-8481", href: "tel:+12098214888", color: "#001E41" },
     { icon: <MapPin className="w-6 h-6" />, label: "Address", value: "2027 Bright Star Pl, Stockton, CA 95209", href: null, color: "#001E41" },
     { icon: <MailIcon className="w-6 h-6" />, label: "Email Us", value: "Info@AmeriFreightautologistics.com", href: "mailto:Info@AmeriFreightautologistics.com", color: "#001E41" },
   ];

@@ -210,7 +210,7 @@ export default function BikeAtvTransport() {
                     </div>
                     <div>
                       <p className="text-white font-semibold">24/7 Support Available</p>
-                      <a href="tel:+12093958481" className="text-white/80 text-sm hover:text-[#001E41] transition">+1 (209) 395-8481</a>
+                      <a href="tel:+12098214888" className="text-white/80 text-sm hover:text-[#001E41] transition">+1 (209) 821-4888</a>
                     </div>
                   </div>
                 </div>

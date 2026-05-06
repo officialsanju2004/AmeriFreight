@@ -131,7 +131,7 @@ const FormSubmissionConfirmation = () => {
                   <Phone className="w-5 h-5 text-[#FF8C00]" />
                   <p className="text-gray-700">
                     Need urgent assistance? Call us at{' '}
-                    <a href="tel:+12093958481" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 395-8481</a>
+                    <a href="tel:+12098214888" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 821-4888</a>
                   </p>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const FormSubmissionConfirmation = () => {
               <h3 className="font-bold text-[#003366] mb-2 text-lg">Need immediate assistance?</h3>
               <p className="text-gray-600">
                 Call us at{' '}
-                <a href="tel:+12093958481" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 395-8481</a>{' '}
+                <a href="tel:+12098214888" className="font-semibold text-[#FF8C00] hover:underline">+1 (209) 821-4888</a>{' '}
                 during business hours.
               </p>
             </div>

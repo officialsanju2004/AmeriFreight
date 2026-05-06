@@ -533,8 +533,8 @@ export default function AutoTransportWebsite() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-6">Our team is here to answer your questions and provide instant quotes.</p>
-                  <a href="tel:+12093958481" className="block text-center py-4 bg-gradient-to-r from-[#fe930f] to-[#FFB347] text-[#001E41] rounded-xl font-bold text-lg hover:shadow-xl transition-all">
-                    Call Now: +1 (209) 395-8481
+                  <a href="tel:+12098214888" className="block text-center py-4 bg-gradient-to-r from-[#fe930f] to-[#FFB347] text-[#001E41] rounded-xl font-bold text-lg hover:shadow-xl transition-all">
+                    Call Now: +1 (209) 821-4888
                   </a>
                   <div className="mt-4 text-center text-xs text-gray-500">Free consultation • No obligation</div>
                 </div>

@@ -59,7 +59,7 @@ export default function Footer() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            href="tel:+12093958481"
+            href="tel:+12098214888"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#001E41] text-white rounded-xl font-bold shadow-lg hover:bg-[#002244] transition-all duration-300"
           >
             <Phone className="w-5 h-5" />
@@ -124,13 +124,13 @@ export default function Footer() {
               <span className="text-sm">2027 Bright Star Pl, Stockton, CA 95209</span>
             </a>
             <a
-              href="tel:+12093958481"
+              href="tel:+12098214888"
               className="flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300 group"
             >
               <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-[#FF8C00] transition-colors duration-300">
                 <Phone className="w-4 h-4 text-white group-hover:text-white" />
               </div>
-              <span className="text-sm">+1 (209) 395-8481</span>
+              <span className="text-sm">+1 (209) 821-4888</span>
             </a>
             <a
               href="mailto:Info@AmeriFreightautologistics.com"
